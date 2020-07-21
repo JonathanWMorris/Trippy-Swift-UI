@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E41460824C53E1600305E97 /* Trippy_Swift_UIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41460724C53E1600305E97 /* Trippy_Swift_UIApp.swift */; };
+		0E41460C24C53E1800305E97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E41460B24C53E1800305E97 /* Assets.xcassets */; };
+		0E41460F24C53E1800305E97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E41460E24C53E1800305E97 /* Preview Assets.xcassets */; };
+		0E41461A24C53E1800305E97 /* Trippy_Swift_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41461924C53E1800305E97 /* Trippy_Swift_UITests.swift */; };
+		0E41462524C53E1800305E97 /* Trippy_Swift_UIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41462424C53E1800305E97 /* Trippy_Swift_UIUITests.swift */; };
+		0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F9FBA24C64EAB00993716 /* MainView.swift */; };
+		0E94B6E724C77428001ED859 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6E624C77428001ED859 /* MapView.swift */; };
+		0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6E924C79DD2001ED859 /* AddTripView.swift */; };
+		0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6EB24C7A818001ED859 /* TripModel.swift */; };
+		1827FE9A6DBCE510EBF5BC3F /* Pods_Trippy_Swift_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2563A3C31099D3EA07591281 /* Pods_Trippy_Swift_UITests.framework */; };
+		555DC627F04FB68D4911CE6C /* Pods_Trippy_Swift_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97491BE8849D3D8B3C7FC501 /* Pods_Trippy_Swift_UI.framework */; };
+		7E509025C9346399CCE4863E /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19C77D32C2E654210F11513 /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0E41461624C53E1800305E97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E4145FC24C53E1600305E97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E41460324C53E1600305E97;
+			remoteInfo = "Trippy Swift UI";
+		};
+		0E41462124C53E1800305E97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E4145FC24C53E1600305E97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E41460324C53E1600305E97;
+			remoteInfo = "Trippy Swift UI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0E41460424C53E1600305E97 /* Trippy Swift UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trippy Swift UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E41460724C53E1600305E97 /* Trippy_Swift_UIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trippy_Swift_UIApp.swift; sourceTree = "<group>"; };
+		0E41460B24C53E1800305E97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0E41460E24C53E1800305E97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0E41461024C53E1800305E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E41461524C53E1800305E97 /* Trippy Swift UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trippy Swift UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E41461924C53E1800305E97 /* Trippy_Swift_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trippy_Swift_UITests.swift; sourceTree = "<group>"; };
+		0E41461B24C53E1800305E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E41462024C53E1800305E97 /* Trippy Swift UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trippy Swift UIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E41462424C53E1800305E97 /* Trippy_Swift_UIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trippy_Swift_UIUITests.swift; sourceTree = "<group>"; };
+		0E41462624C53E1800305E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E6F9FBA24C64EAB00993716 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0E94B6E624C77428001ED859 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0E94B6E924C79DD2001ED859 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
+		0E94B6EB24C7A818001ED859 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
+		0ED8C927DE5AE192204999D8 /* Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UI-Trippy Swift UIUITests/Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2563A3C31099D3EA07591281 /* Pods_Trippy_Swift_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trippy_Swift_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B9FB576581734C7CDEC2CA /* Pods-Trippy Swift UI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UI.release.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UI/Pods-Trippy Swift UI.release.xcconfig"; sourceTree = "<group>"; };
+		97491BE8849D3D8B3C7FC501 /* Pods_Trippy_Swift_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trippy_Swift_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A8AAEAC95D0B6CA7E5B0483 /* Pods-Trippy Swift UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UITests.debug.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UITests/Pods-Trippy Swift UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A6F00BA048C1756CBF22943F /* Pods-Trippy Swift UI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UI.debug.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UI/Pods-Trippy Swift UI.debug.xcconfig"; sourceTree = "<group>"; };
+		D1123E5BE7AFEA42E643AB8F /* Pods-Trippy Swift UI-Trippy Swift UIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UI-Trippy Swift UIUITests.debug.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UI-Trippy Swift UIUITests/Pods-Trippy Swift UI-Trippy Swift UIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D19C77D32C2E654210F11513 /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECCC3D6FC1C9E876E77F9DF1 /* Pods-Trippy Swift UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UITests.release.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UITests/Pods-Trippy Swift UITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E41460124C53E1600305E97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				555DC627F04FB68D4911CE6C /* Pods_Trippy_Swift_UI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E41461224C53E1800305E97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1827FE9A6DBCE510EBF5BC3F /* Pods_Trippy_Swift_UITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E41461D24C53E1800305E97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E509025C9346399CCE4863E /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E4145FB24C53E1600305E97 = {
+			isa = PBXGroup;
+			children = (
+				0E41460624C53E1600305E97 /* Trippy Swift UI */,
+				0E41461824C53E1800305E97 /* Trippy Swift UITests */,
+				0E41462324C53E1800305E97 /* Trippy Swift UIUITests */,
+				0E41460524C53E1600305E97 /* Products */,
+				872D638C928DABFB29705D27 /* Pods */,
+				39A824F894EEA5FE45316F22 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0E41460524C53E1600305E97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0E41460424C53E1600305E97 /* Trippy Swift UI.app */,
+				0E41461524C53E1800305E97 /* Trippy Swift UITests.xctest */,
+				0E41462024C53E1800305E97 /* Trippy Swift UIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0E41460624C53E1600305E97 /* Trippy Swift UI */ = {
+			isa = PBXGroup;
+			children = (
+				0E41460724C53E1600305E97 /* Trippy_Swift_UIApp.swift */,
+				0E94B6ED24C7A82D001ED859 /* Models */,
+				0E94B6E824C79D99001ED859 /* View */,
+				0E94B6EE24C7A836001ED859 /* ViewModels */,
+				0E41460B24C53E1800305E97 /* Assets.xcassets */,
+				0E41461024C53E1800305E97 /* Info.plist */,
+				0E41460D24C53E1800305E97 /* Preview Content */,
+			);
+			path = "Trippy Swift UI";
+			sourceTree = "<group>";
+		};
+		0E41460D24C53E1800305E97 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				0E41460E24C53E1800305E97 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0E41461824C53E1800305E97 /* Trippy Swift UITests */ = {
+			isa = PBXGroup;
+			children = (
+				0E41461924C53E1800305E97 /* Trippy_Swift_UITests.swift */,
+				0E41461B24C53E1800305E97 /* Info.plist */,
+			);
+			path = "Trippy Swift UITests";
+			sourceTree = "<group>";
+		};
+		0E41462324C53E1800305E97 /* Trippy Swift UIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0E41462424C53E1800305E97 /* Trippy_Swift_UIUITests.swift */,
+				0E41462624C53E1800305E97 /* Info.plist */,
+			);
+			path = "Trippy Swift UIUITests";
+			sourceTree = "<group>";
+		};
+		0E94B6E824C79D99001ED859 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E6F9FBA24C64EAB00993716 /* MainView.swift */,
+				0E94B6E624C77428001ED859 /* MapView.swift */,
+				0E94B6E924C79DD2001ED859 /* AddTripView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E94B6ED24C7A82D001ED859 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E94B6EB24C7A818001ED859 /* TripModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0E94B6EE24C7A836001ED859 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		39A824F894EEA5FE45316F22 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97491BE8849D3D8B3C7FC501 /* Pods_Trippy_Swift_UI.framework */,
+				D19C77D32C2E654210F11513 /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework */,
+				2563A3C31099D3EA07591281 /* Pods_Trippy_Swift_UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		872D638C928DABFB29705D27 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6F00BA048C1756CBF22943F /* Pods-Trippy Swift UI.debug.xcconfig */,
+				70B9FB576581734C7CDEC2CA /* Pods-Trippy Swift UI.release.xcconfig */,
+				D1123E5BE7AFEA42E643AB8F /* Pods-Trippy Swift UI-Trippy Swift UIUITests.debug.xcconfig */,
+				0ED8C927DE5AE192204999D8 /* Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig */,
+				9A8AAEAC95D0B6CA7E5B0483 /* Pods-Trippy Swift UITests.debug.xcconfig */,
+				ECCC3D6FC1C9E876E77F9DF1 /* Pods-Trippy Swift UITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0E41460324C53E1600305E97 /* Trippy Swift UI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E41462924C53E1800305E97 /* Build configuration list for PBXNativeTarget "Trippy Swift UI" */;
+			buildPhases = (
+				A1A7152B0201660A2DE77CA3 /* [CP] Check Pods Manifest.lock */,
+				0E41460024C53E1600305E97 /* Sources */,
+				0E41460124C53E1600305E97 /* Frameworks */,
+				0E41460224C53E1600305E97 /* Resources */,
+				15DD8766BA5824F973F6D423 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Trippy Swift UI";
+			productName = "Trippy Swift UI";
+			productReference = 0E41460424C53E1600305E97 /* Trippy Swift UI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0E41461424C53E1800305E97 /* Trippy Swift UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E41462C24C53E1800305E97 /* Build configuration list for PBXNativeTarget "Trippy Swift UITests" */;
+			buildPhases = (
+				4CFCB5A0880F606ED4E14CFB /* [CP] Check Pods Manifest.lock */,
+				0E41461124C53E1800305E97 /* Sources */,
+				0E41461224C53E1800305E97 /* Frameworks */,
+				0E41461324C53E1800305E97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E41461724C53E1800305E97 /* PBXTargetDependency */,
+			);
+			name = "Trippy Swift UITests";
+			productName = "Trippy Swift UITests";
+			productReference = 0E41461524C53E1800305E97 /* Trippy Swift UITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0E41461F24C53E1800305E97 /* Trippy Swift UIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E41462F24C53E1800305E97 /* Build configuration list for PBXNativeTarget "Trippy Swift UIUITests" */;
+			buildPhases = (
+				0495E1CD7C55BBDADBEEF796 /* [CP] Check Pods Manifest.lock */,
+				0E41461C24C53E1800305E97 /* Sources */,
+				0E41461D24C53E1800305E97 /* Frameworks */,
+				0E41461E24C53E1800305E97 /* Resources */,
+				DE6CAB35E6876407B4EA4E5C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E41462224C53E1800305E97 /* PBXTargetDependency */,
+			);
+			name = "Trippy Swift UIUITests";
+			productName = "Trippy Swift UIUITests";
+			productReference = 0E41462024C53E1800305E97 /* Trippy Swift UIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0E4145FC24C53E1600305E97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					0E41460324C53E1600305E97 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					0E41461424C53E1800305E97 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 0E41460324C53E1600305E97;
+					};
+					0E41461F24C53E1800305E97 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 0E41460324C53E1600305E97;
+					};
+				};
+			};
+			buildConfigurationList = 0E4145FF24C53E1600305E97 /* Build configuration list for PBXProject "Trippy Swift UI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0E4145FB24C53E1600305E97;
+			productRefGroup = 0E41460524C53E1600305E97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0E41460324C53E1600305E97 /* Trippy Swift UI */,
+				0E41461424C53E1800305E97 /* Trippy Swift UITests */,
+				0E41461F24C53E1800305E97 /* Trippy Swift UIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0E41460224C53E1600305E97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E41460F24C53E1800305E97 /* Preview Assets.xcassets in Resources */,
+				0E41460C24C53E1800305E97 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E41461324C53E1800305E97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E41461E24C53E1800305E97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0495E1CD7C55BBDADBEEF796 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trippy Swift UI-Trippy Swift UIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15DD8766BA5824F973F6D423 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trippy Swift UI/Pods-Trippy Swift UI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trippy Swift UI/Pods-Trippy Swift UI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Trippy Swift UI/Pods-Trippy Swift UI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CFCB5A0880F606ED4E14CFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trippy Swift UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1A7152B0201660A2DE77CA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trippy Swift UI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE6CAB35E6876407B4EA4E5C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trippy Swift UI-Trippy Swift UIUITests/Pods-Trippy Swift UI-Trippy Swift UIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trippy Swift UI-Trippy Swift UIUITests/Pods-Trippy Swift UI-Trippy Swift UIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Trippy Swift UI-Trippy Swift UIUITests/Pods-Trippy Swift UI-Trippy Swift UIUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E41460024C53E1600305E97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E94B6E724C77428001ED859 /* MapView.swift in Sources */,
+				0E41460824C53E1600305E97 /* Trippy_Swift_UIApp.swift in Sources */,
+				0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */,
+				0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */,
+				0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E41461124C53E1800305E97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E41461A24C53E1800305E97 /* Trippy_Swift_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E41461C24C53E1800305E97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E41462524C53E1800305E97 /* Trippy_Swift_UIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0E41461724C53E1800305E97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E41460324C53E1600305E97 /* Trippy Swift UI */;
+			targetProxy = 0E41461624C53E1800305E97 /* PBXContainerItemProxy */;
+		};
+		0E41462224C53E1800305E97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E41460324C53E1600305E97 /* Trippy Swift UI */;
+			targetProxy = 0E41462124C53E1800305E97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0E41462724C53E1800305E97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0E41462824C53E1800305E97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0E41462A24C53E1800305E97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6F00BA048C1756CBF22943F /* Pods-Trippy Swift UI.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Trippy Swift UI/Preview Content\"";
+				DEVELOPMENT_TEAM = K4JUXHG9B5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Trippy Swift UI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanmorris.Trippy-Swift-UI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0E41462B24C53E1800305E97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70B9FB576581734C7CDEC2CA /* Pods-Trippy Swift UI.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Trippy Swift UI/Preview Content\"";
+				DEVELOPMENT_TEAM = K4JUXHG9B5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Trippy Swift UI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanmorris.Trippy-Swift-UI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0E41462D24C53E1800305E97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A8AAEAC95D0B6CA7E5B0483 /* Pods-Trippy Swift UITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K4JUXHG9B5;
+				INFOPLIST_FILE = "Trippy Swift UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanmorris.Trippy-Swift-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trippy Swift UI.app/Trippy Swift UI";
+			};
+			name = Debug;
+		};
+		0E41462E24C53E1800305E97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECCC3D6FC1C9E876E77F9DF1 /* Pods-Trippy Swift UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K4JUXHG9B5;
+				INFOPLIST_FILE = "Trippy Swift UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanmorris.Trippy-Swift-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trippy Swift UI.app/Trippy Swift UI";
+			};
+			name = Release;
+		};
+		0E41463024C53E1800305E97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1123E5BE7AFEA42E643AB8F /* Pods-Trippy Swift UI-Trippy Swift UIUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K4JUXHG9B5;
+				INFOPLIST_FILE = "Trippy Swift UIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanmorris.Trippy-Swift-UIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trippy Swift UI";
+			};
+			name = Debug;
+		};
+		0E41463124C53E1800305E97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0ED8C927DE5AE192204999D8 /* Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K4JUXHG9B5;
+				INFOPLIST_FILE = "Trippy Swift UIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jonathanmorris.Trippy-Swift-UIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Trippy Swift UI";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0E4145FF24C53E1600305E97 /* Build configuration list for PBXProject "Trippy Swift UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E41462724C53E1800305E97 /* Debug */,
+				0E41462824C53E1800305E97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E41462924C53E1800305E97 /* Build configuration list for PBXNativeTarget "Trippy Swift UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E41462A24C53E1800305E97 /* Debug */,
+				0E41462B24C53E1800305E97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E41462C24C53E1800305E97 /* Build configuration list for PBXNativeTarget "Trippy Swift UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E41462D24C53E1800305E97 /* Debug */,
+				0E41462E24C53E1800305E97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E41462F24C53E1800305E97 /* Build configuration list for PBXNativeTarget "Trippy Swift UIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E41463024C53E1800305E97 /* Debug */,
+				0E41463124C53E1800305E97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0E4145FC24C53E1600305E97 /* Project object */;
+}

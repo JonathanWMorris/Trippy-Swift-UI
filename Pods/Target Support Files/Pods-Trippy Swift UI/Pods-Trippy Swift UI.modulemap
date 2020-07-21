@@ -1,0 +1,6 @@
+framework module Pods_Trippy_Swift_UI {
+  umbrella header "Pods-Trippy Swift UI-umbrella.h"
+
+  export *
+  module * { export * }
+}
