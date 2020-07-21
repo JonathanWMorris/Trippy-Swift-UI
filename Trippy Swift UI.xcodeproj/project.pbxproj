@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		0E41460F24C53E1800305E97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E41460E24C53E1800305E97 /* Preview Assets.xcassets */; };
 		0E41461A24C53E1800305E97 /* Trippy_Swift_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41461924C53E1800305E97 /* Trippy_Swift_UITests.swift */; };
 		0E41462524C53E1800305E97 /* Trippy_Swift_UIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41462424C53E1800305E97 /* Trippy_Swift_UIUITests.swift */; };
+		0E68276324C7B2CF002E6C8C /* TrippyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */; };
 		0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F9FBA24C64EAB00993716 /* MainView.swift */; };
 		0E94B6E724C77428001ED859 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6E624C77428001ED859 /* MapView.swift */; };
 		0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6E924C79DD2001ED859 /* AddTripView.swift */; };
@@ -50,6 +51,7 @@
 		0E41462024C53E1800305E97 /* Trippy Swift UIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Trippy Swift UIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E41462424C53E1800305E97 /* Trippy_Swift_UIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trippy_Swift_UIUITests.swift; sourceTree = "<group>"; };
 		0E41462624C53E1800305E97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyViewModel.swift; sourceTree = "<group>"; };
 		0E6F9FBA24C64EAB00993716 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E94B6E624C77428001ED859 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0E94B6E924C79DD2001ED859 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
@@ -159,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				0E6F9FBA24C64EAB00993716 /* MainView.swift */,
-				0E94B6E624C77428001ED859 /* MapView.swift */,
 				0E94B6E924C79DD2001ED859 /* AddTripView.swift */,
+				0E94B6E624C77428001ED859 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 		0E94B6EE24C7A836001ED859 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,7 +203,6 @@
 				9A8AAEAC95D0B6CA7E5B0483 /* Pods-Trippy Swift UITests.debug.xcconfig */,
 				ECCC3D6FC1C9E876E77F9DF1 /* Pods-Trippy Swift UITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -443,6 +445,7 @@
 			files = (
 				0E94B6E724C77428001ED859 /* MapView.swift in Sources */,
 				0E41460824C53E1600305E97 /* Trippy_Swift_UIApp.swift in Sources */,
+				0E68276324C7B2CF002E6C8C /* TrippyViewModel.swift in Sources */,
 				0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */,
 				0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */,
 				0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */,

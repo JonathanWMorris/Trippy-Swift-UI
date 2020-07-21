@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct AddTripView: View {
+    
     @Binding var fromDate:Date
     @Binding var toDate:Date
     @Binding var cityName:String
+    @State private var errorMessagePresenting:Bool = false
+    
     var body: some View {
         Form {
             Section(header: Text("City Name").padding(.top, 20)){
@@ -20,7 +23,7 @@ struct AddTripView: View {
             Section(header: Text("Date")) {
                 VStack(alignment:.leading) {
                     DatePicker("From", selection: $fromDate,displayedComponents: .date)
-                    DatePicker("To     ", selection: $fromDate,displayedComponents: .date)
+                    DatePicker("To     ", selection: $toDate,displayedComponents: .date)
                 }
                 .frame(height: 100, alignment: .center)
                 .font(.body)
@@ -31,11 +34,17 @@ struct AddTripView: View {
         .navigationTitle("Add Trip")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
-            //Button Action When Clicked
-            #warning("need to verify if the toDate is after the fromDate")
+            if toDate.timeIntervalSince1970 > fromDate.timeIntervalSince1970{
+                
+            }else{
+                errorMessagePresenting = true
+            }
         }, label: {
             Text("Done")
         }))
+        .alert(isPresented: $errorMessagePresenting) {
+            Alert(title: Text("Please Check your Date"))
+        }
     }
 }
 
