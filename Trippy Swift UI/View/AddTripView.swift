@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct AddTripView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
@@ -14,7 +15,14 @@ struct AddTripView: View {
     @Binding var fromDate:Date
     @Binding var toDate:Date
     @Binding var cityName:String
+    
     @State private var errorMessagePresenting:Bool = false
+    @State private var errorMessage = ""
+    
+    func showAlert(with text:String){
+        errorMessage = text
+        errorMessagePresenting = true
+    }
     
     var body: some View {
         Form {
@@ -36,21 +44,29 @@ struct AddTripView: View {
         .navigationTitle("Add Trip")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
-            if toDate.timeIntervalSince1970 > fromDate.timeIntervalSince1970{
-                trippyViewModel.addTrip(cityName: cityName, fromDate: fromDate, toDate: toDate)
-                cityName = ""
-                toDate = Date()
-                fromDate = Date()
-                presentationMode.wrappedValue.dismiss()
-            }else{
-                errorMessagePresenting = true
+            guard cityName != "" else{
+                showAlert(with: "Enter a City Name")
+                return
             }
+            CLGeocoder().geocodeAddressString(cityName) { (placemarks, error) in
+                if placemarks?.first?.location?.coordinate != nil {
+                    trippyViewModel.addTrip(cityName: cityName, fromDate: fromDate, toDate: toDate)
+                    cityName = ""
+                    fromDate = Date()
+                    toDate = Date()
+                    presentationMode.wrappedValue.dismiss()
+                }else{
+                    showAlert(with: "Could Not Find The City")
+                }
+            }
+            
         }, label: {
             Text("Done")
         }))
         .alert(isPresented: $errorMessagePresenting) {
-            Alert(title: Text("Please Check your Date"))
+            Alert(title: Text(errorMessage))
         }
+        
     }
 }
 

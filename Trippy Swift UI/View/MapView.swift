@@ -32,41 +32,49 @@ struct MapView: View {
     
     var body: some View {
         ZStack{
+            
             Map(coordinateRegion: $mapRegion)
             
-            LinearGradient(gradient: Gradient(colors: [.clear, Color(UIColor(white: 0.5, alpha: 0.7))]), startPoint: .top, endPoint: .bottom)
-    
+            Color(.init(white: colorScheme == .dark ? 0:1, alpha: 0.3))
+                .blur(radius: 10)
+            
             VStack{
-                
                 Spacer()
-                
-                HStack {
-                    Text(cityName)
-                        .fontWeight(.heavy)
-                        .padding([.leading], 20)
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                    Spacer()
+                VStack{
+                    HStack {
+                        Text(cityName)
+                            .fontWeight(.heavy)
+                            
+                            .font(.largeTitle)
+                            .foregroundColor(colorScheme == .dark ? .white:.black)
+                            .background(Color(.init(white: colorScheme == .dark ? 0:1, alpha: 0.3))
+                                            .blur(radius: 1))
+                        Spacer()
+                    }.padding(.leading, 10)
+
+                    HStack {
+                        Text("\(fromDateString) -")
+                            .fontWeight(.regular)
+                            .font(.body)
+                            .foregroundColor(colorScheme == .dark ? .white:.black)
+                            .background(Color(.init(white: colorScheme == .dark ? 0:1, alpha: 0.3))
+                                            .blur(radius: 1))
+                            .padding(.leading, 10)
+                        Text("\(toDateString)")
+                            .fontWeight(.regular)
+                            .font(.body)
+                            .foregroundColor(colorScheme == .dark ? .white:.black)
+                            .background(Color(.init(white: colorScheme == .dark ? 0:1, alpha: 0.3))
+                                            .blur(radius: 1))
+                        
+                        Spacer()
+                    }.padding(.bottom, 30)
                 }
-                
-                HStack {
-                    Text("\(fromDateString) - ")
-                        .fontWeight(.regular)
-                        .font(.body)
-                        .foregroundColor(.white)
-                    Text("\(toDateString)")
-                        .fontWeight(.regular)
-                        .font(.body)
-                        .foregroundColor(.white)
-                    Spacer()
-                }
-                .padding([.bottom,.leading], 20)
-                
             }
         }
         .frame(height: 200, alignment: .center)
         .cornerRadius(10)
-        .shadow(radius: 10)
+        .shadow(radius: 5)
         .padding(.all, 10)
     }
 }
@@ -75,7 +83,5 @@ struct MapView_Previews: PreviewProvider {
     static var previews: some View {
         MapView(cityName:"London", fromDate: Date(), toDate: Date())
             .previewLayout(.sizeThatFits)
-            
-            
     }
 }
