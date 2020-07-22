@@ -10,24 +10,24 @@ import MapKit
 
 struct MapView: View {
     @State var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
+    @Environment(\.colorScheme) var colorScheme
     var cityName:String
     var fromDate: Date
     var toDate: Date
     
-    var fromDateString: String{
+    func dateFormatter() -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "en_US")
-        return dateFormatter.string(from: fromDate)
+        return dateFormatter
+    }
+    
+    var fromDateString: String{
+        return dateFormatter().string(from: fromDate)
     }
     var toDateString: String{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
-        
-        return dateFormatter.string(from: toDate)
+        return dateFormatter().string(from: toDate)
     }
     
     var body: some View {
