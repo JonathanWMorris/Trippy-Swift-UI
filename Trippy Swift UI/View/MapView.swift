@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @Binding var mapRegion: MKCoordinateRegion
+    @State var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     var cityName:String
     var fromDate: Date
     var toDate: Date
@@ -19,7 +19,6 @@ struct MapView: View {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "en_US")
-        
         return dateFormatter.string(from: fromDate)
     }
     var toDateString: String{
@@ -28,14 +27,14 @@ struct MapView: View {
         dateFormatter.timeStyle = .none
         dateFormatter.locale = Locale(identifier: "en_US")
         
-        return dateFormatter.string(from: fromDate)
+        return dateFormatter.string(from: toDate)
     }
     
     var body: some View {
         ZStack{
             Map(coordinateRegion: $mapRegion)
             
-            LinearGradient(gradient: Gradient(colors: [.clear, .gray]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.clear, Color(UIColor(white: 0.5, alpha: 0.7))]), startPoint: .top, endPoint: .bottom)
     
             VStack{
                 
@@ -74,8 +73,7 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(mapRegion:.constant(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
-                                                       span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))), cityName:"London", fromDate: Date(), toDate: Date())
+        MapView(cityName:"London", fromDate: Date(), toDate: Date())
             .previewLayout(.sizeThatFits)
             
             

@@ -7,12 +7,15 @@
 
 import Foundation
 import RealmSwift
+import MapKit
 
 class Trip: Object, Identifiable {
     var id = UUID()
-    @objc dynamic var name:String = ""
+    @objc dynamic var cityName:String = ""
     @objc dynamic var fromDate:Date = Date()
     @objc dynamic var toDate:Date = Date()
+    @objc dynamic var locationLat:Double = 0.0
+    @objc dynamic var locationLon:Double = 0.0
     var places = List<Places>()
 }
 

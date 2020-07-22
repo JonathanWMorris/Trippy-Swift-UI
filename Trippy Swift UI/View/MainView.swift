@@ -9,9 +9,8 @@ import SwiftUI
 import MapKit
 
 struct MainView: View {
+    @EnvironmentObject var trippyViewModel:TrippyViewModel
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275),
-                                                   span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
     @State private var name = ""
     @State private var fromDate = Date()
     @State private var toDate = Date()
@@ -19,10 +18,15 @@ struct MainView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                #warning("This is just temperory")
-                Button(action: {}, label: {
-                    MapView(mapRegion: $region, cityName: "London", fromDate: fromDate, toDate: toDate)
-                })
+                if trippyViewModel.trips != nil {
+                    ForEach(trippyViewModel.trips!){trip in
+                        Button(action: {}, label: {
+                            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: trip.locationLat, longitude: trip.locationLon),
+                                                            span: MKCoordinateSpan(latitudeDelta: 1.0, longitudeDelta: 1.0))
+                            MapView(mapRegion: region, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate)
+                        })
+                    }
+                }
             }
             .navigationTitle("Trips")
             .navigationBarItems(trailing:
@@ -32,6 +36,8 @@ struct MainView: View {
                             .font(.title)
                     })
             )
+        }.onAppear {
+            print(trippyViewModel.trips)
         }
     }
 }
@@ -39,5 +45,6 @@ struct MainView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(TrippyViewModel())
     }
 }

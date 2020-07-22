@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AddTripView: View {
+    @EnvironmentObject var trippyViewModel:TrippyViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var fromDate:Date
     @Binding var toDate:Date
@@ -35,7 +37,11 @@ struct AddTripView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarItems(trailing: Button(action: {
             if toDate.timeIntervalSince1970 > fromDate.timeIntervalSince1970{
-                
+                trippyViewModel.addTrip(cityName: cityName, fromDate: fromDate, toDate: toDate)
+                cityName = ""
+                toDate = Date()
+                fromDate = Date()
+                presentationMode.wrappedValue.dismiss()
             }else{
                 errorMessagePresenting = true
             }
@@ -52,6 +58,7 @@ struct AddTripView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             AddTripView(fromDate: .constant(Date()),toDate: .constant(Date()),cityName: .constant(""))
+                .environmentObject(TrippyViewModel())
         }
     }
 }

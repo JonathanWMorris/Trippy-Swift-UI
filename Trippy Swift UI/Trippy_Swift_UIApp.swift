@@ -11,7 +11,7 @@ import SwiftUI
 struct Trippy_Swift_UIApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView().environmentObject(TrippyViewModel())
         }
     }
 }
