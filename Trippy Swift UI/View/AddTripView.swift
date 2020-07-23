@@ -12,10 +12,9 @@ struct AddTripView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var fromDate:Date
-    @Binding var toDate:Date
-    @Binding var cityName:String
-    
+    @State private var fromDate:Date = Date()
+    @State private var toDate:Date = Date()
+    @State private var cityName:String = ""
     @State private var errorMessagePresenting:Bool = false
     @State private var errorMessage = ""
     
@@ -70,7 +69,7 @@ struct AddTripView: View {
 struct AddTripView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            AddTripView(fromDate: .constant(Date()),toDate: .constant(Date()),cityName: .constant(""))
+            AddTripView()
                 .environmentObject(TrippyViewModel())
                 .environment(\.colorScheme, .light)
         }
