@@ -26,9 +26,8 @@ struct MainView: View {
                         ForEach(trippyViewModel.trips!){trip in
                             Button(action: {}, label: {
                                 let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: trip.locationLat, longitude: trip.locationLon),
-                                                                span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+                                                                span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0))
                                 MapView(mapRegion: region, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate)
-                                
                             })
                         }
                     }
@@ -49,5 +48,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
             .environmentObject(TrippyViewModel())
+            .environment(\.colorScheme, .light)
     }
 }

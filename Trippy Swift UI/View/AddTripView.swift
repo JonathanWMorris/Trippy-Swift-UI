@@ -32,13 +32,10 @@ struct AddTripView: View {
             
             Section(header: Text("Date")) {
                 VStack(alignment:.leading) {
-                    DatePicker("From", selection: $fromDate,displayedComponents: .date)
-                    DatePicker("To     ", selection: $toDate,displayedComponents: .date)
+//                    DatePicker("From", selection: $fromDate,displayedComponents: .date)
+//                    DatePicker("To     ", selection: $toDate,displayedComponents: .date)
                 }
-                .frame(height: 100, alignment: .center)
-                .font(.body)
-                .padding(.all, 10)
-                Spacer()
+                .padding([.top,.bottom])
             }
         }
         .navigationTitle("Add Trip")
@@ -75,6 +72,7 @@ struct AddTripView_Previews: PreviewProvider {
         NavigationView{
             AddTripView(fromDate: .constant(Date()),toDate: .constant(Date()),cityName: .constant(""))
                 .environmentObject(TrippyViewModel())
+                .environment(\.colorScheme, .light)
         }
     }
 }
