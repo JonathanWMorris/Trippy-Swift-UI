@@ -16,6 +16,7 @@
 		0E64436624CA3D9D00A1F8D5 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E64436524CA3D9D00A1F8D5 /* PlaceView.swift */; };
 		0E64436824CA3E6000A1F8D5 /* YelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E64436724CA3E6000A1F8D5 /* YelpService.swift */; };
 		0E64436B24CA3EA400A1F8D5 /* YelpPlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E64436A24CA3EA400A1F8D5 /* YelpPlaceModel.swift */; };
+		0E678E3E24D094C6000EC1E8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E678E3D24D094C6000EC1E8 /* CategoryView.swift */; };
 		0E68276324C7B2CF002E6C8C /* TrippyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */; };
 		0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F9FBA24C64EAB00993716 /* MainView.swift */; };
 		0E911E2724C9F7170034FD5F /* YelpAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E911E2624C9F7170034FD5F /* YelpAPIKey.swift */; };
@@ -61,6 +62,7 @@
 		0E64436524CA3D9D00A1F8D5 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		0E64436724CA3E6000A1F8D5 /* YelpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpService.swift; sourceTree = "<group>"; };
 		0E64436A24CA3EA400A1F8D5 /* YelpPlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpPlaceModel.swift; sourceTree = "<group>"; };
+		0E678E3D24D094C6000EC1E8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyViewModel.swift; sourceTree = "<group>"; };
 		0E6F9FBA24C64EAB00993716 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E911E2624C9F7170034FD5F /* YelpAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIKey.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				0E6F9FBA24C64EAB00993716 /* MainView.swift */,
 				0E21718B24C9F20C009CF3FB /* TripDetailsPage.swift */,
+				0E678E3D24D094C6000EC1E8 /* CategoryView.swift */,
 				0E64436524CA3D9D00A1F8D5 /* PlaceView.swift */,
 				0EB0EA1C24CFDDCC004F3A6E /* ImageView.swift */,
 				0E94B6E924C79DD2001ED859 /* AddTripView.swift */,
@@ -474,6 +477,7 @@
 				0E94B6E724C77428001ED859 /* MapView.swift in Sources */,
 				0E41460824C53E1600305E97 /* Trippy_Swift_UIApp.swift in Sources */,
 				0E64436624CA3D9D00A1F8D5 /* PlaceView.swift in Sources */,
+				0E678E3E24D094C6000EC1E8 /* CategoryView.swift in Sources */,
 				0E68276324C7B2CF002E6C8C /* TrippyViewModel.swift in Sources */,
 				0E21718C24C9F20C009CF3FB /* TripDetailsPage.swift in Sources */,
 				0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */,

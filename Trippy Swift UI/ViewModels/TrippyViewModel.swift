@@ -19,6 +19,12 @@ class TrippyViewModel:ObservableObject {
     
     @Published var placesForCateggory:[CleanYelpBulkPlaceModel]?
     
+    let categoriesAvailable: [String] = [
+        "Search","Hotels", "Shopping","Food", "Museums",
+        "Tours", "Beaches", "Theme Parks","Activities","Spas",
+        "Yoga", "Parks", "Zoos", "Aquariums", "Cinema"
+    ]
+    
     init() {
         trips = realm.objects(Trip.self)
     }
@@ -110,6 +116,80 @@ class TrippyViewModel:ObservableObject {
                 self.placesForCateggory?.append(cleanData)
                 
             }
+        }
+    }
+}
+//MARK: Category Functions
+extension TrippyViewModel{
+    
+    func getSystemName(for category:String) -> String {
+        switch category {
+        case "Search":
+            return "magnifyingglass"
+        case "Hotels":
+            return "house"
+        case "Shopping":
+            return "cart"
+        case "Food":
+            return "scroll"
+        case "Museums":
+            return "building.columns"
+        case "Tours":
+            return "bus"
+        case "Beaches":
+            return "sun.dust"
+        case "Theme Parks":
+            return "tram"
+        case "Activities":
+            return "person.3"
+        case "Spas":
+            return "eyebrow"
+        case "Yoga":
+            return "lungs"
+        case "Parks":
+            return "lungs"
+        case "Zoos":
+            return "tortoise"
+        case "Aquariums":
+            return "drop"
+        case "Cinema":
+            return "play.rectangle"
+        default:
+            return "camera"
+        }
+    }
+    func getCatagoryAlias(with catagoryName: String) -> String {
+        switch catagoryName {
+        case "Hotels":
+            return "hotels"
+        case "Shopping":
+            return "shopping"
+        case "Food":
+            return "food"
+        case "Museums":
+            return "museums"
+        case "Tours":
+            return "tours"
+        case "Beaches":
+            return "beaches"
+        case "Theme Parks":
+            return "amusementparks"
+        case "Activities":
+            return "active"
+        case "Spas":
+            return "beautysvc"
+        case "Yoga":
+            return "yoga"
+        case "Parks":
+            return "parks"
+        case "Zoos":
+            return "zoos"
+        case "Aquariums":
+            return "aquariums"
+        case "Cinema":
+            return "movietheaters"
+        default:
+            return ""
         }
     }
 }

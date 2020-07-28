@@ -39,8 +39,12 @@ struct MainView: View {
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
-            .environmentObject(TrippyViewModel())
-            .environment(\.colorScheme, .light)
+        Group {
+            MainView()
+                .environmentObject(TrippyViewModel())
+            MainView()
+                .preferredColorScheme(.dark)
+                .environmentObject(TrippyViewModel())
+        }
     }
 }

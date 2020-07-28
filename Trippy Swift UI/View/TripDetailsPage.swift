@@ -41,16 +41,28 @@ struct TripDetailsPage: View {
             }
             Spacer()
                 .navigationTitle(cityName)
-        }
+        }.navigationBarItems(trailing: Button(action: {
+            #warning("Set the add place view here")
+        }, label: {
+            Image(systemName: "plus")
+                .font(.title)
+        }))
     }
 }
 
 struct TripDetailsPage_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
-            TripDetailsPage(cityName: "London",fromDate: Date(), toDate: Date())
-                .environmentObject(TrippyViewModel())
-                .environment(\.colorScheme, .light)
+        Group {
+            NavigationView{
+                TripDetailsPage(cityName: "London",fromDate: Date(), toDate: Date())
+                    .environmentObject(TrippyViewModel())
+                    .environment(\.colorScheme, .light)
+            }
+            NavigationView{
+                TripDetailsPage(cityName: "London",fromDate: Date(), toDate: Date())
+                    .environmentObject(TrippyViewModel())
+            }
+            .preferredColorScheme(.dark)
         }
     }
 }
