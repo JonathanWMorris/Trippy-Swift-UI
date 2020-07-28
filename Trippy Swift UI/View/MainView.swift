@@ -10,21 +10,18 @@ import MapKit
 
 struct MainView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
-    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationView{
             ZStack{
-                Color(.init(white: colorScheme == .dark ? 0.15:1, alpha: 1))
-                    .edgesIgnoringSafeArea(.all)
                 ScrollView{
                     if trippyViewModel.trips != nil {
                         ForEach(trippyViewModel.trips!){trip in
-                            Button(action: {}, label: {
-                                let region = MKCoordinateRegion(
-                                    center: CLLocationCoordinate2D(latitude: trip.locationLat, longitude: trip.locationLon),
-                                    span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
-                                )
+                            let region = MKCoordinateRegion(
+                                center: CLLocationCoordinate2D(latitude: trip.locationLat, longitude: trip.locationLon),
+                                span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
+                            )
+                            NavigationLink(destination: TripDetailsPage(region: region, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate), label: {
                                 MapView(mapRegion: region, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate)
                             })
                         }

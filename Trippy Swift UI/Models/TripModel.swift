@@ -19,8 +19,19 @@ class Trip: Object, Identifiable {
     var places = List<Places>()
 }
 
-class Places: Object {
-    var name:String = ""
-    var imageURL:URL = URL(string: "google.com")!
-    var stars:Double = 0
+class Places: Object, Identifiable {
+    @objc dynamic var id:String = ""
+    @objc dynamic var name:String = ""
+    @objc dynamic var image1:String = ""
+    @objc dynamic var image2:String = ""
+    @objc dynamic var image3:String = ""
+    @objc dynamic var image4:String = ""
+    @objc dynamic var rating:Double = 0
+    @objc dynamic var price:String = "$"
+    @objc dynamic var reviewCount:Int = 0
+    @objc dynamic var phone:String = ""
+    @objc dynamic var category:String = ""
+    @objc dynamic var url:String = "https://www.google.com"
+    @objc dynamic var address:String = ""
+    let trip = LinkingObjects(fromType: Trip.self, property: "places")
 }

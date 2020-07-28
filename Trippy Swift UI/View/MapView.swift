@@ -9,26 +9,14 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @State var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var trippyViewModel:TrippyViewModel
+    
+    @State var mapRegion = MKCoordinateRegion()
+    
     var cityName:String
     var fromDate: Date
     var toDate: Date
-    
-    func dateFormatter() -> DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
-        return dateFormatter
-    }
-    
-    var fromDateString: String{
-        return dateFormatter().string(from: fromDate)
-    }
-    var toDateString: String{
-        return dateFormatter().string(from: toDate)
-    }
     
     var body: some View {
         ZStack{
@@ -52,7 +40,8 @@ struct MapView: View {
                 }.padding(.leading, 5)
                 
                 HStack {
-                    (Text("\(fromDateString) -") + Text("\(toDateString)"))
+                    (Text("\(trippyViewModel.getFormattedDate(with: fromDate)) -")
+                        + Text("\(trippyViewModel.getFormattedDate(with: toDate))"))
                         .fontWeight(.regular)
                         .font(.body)
                         .padding([.trailing,.bottom],5)
