@@ -15,9 +15,9 @@ class TrippyViewModel:ObservableObject {
     let yelpService = YelpService()
     
     @Published var trips:Results<Trip>?
-    @Published var places:Results<Places>?
+    @Published var placesForTrip:Results<Places>?
     
-    @Published var placesForCateggory:[CleanYelpBulkPlaceModel]?
+    @Published var placesForSearch:[CleanYelpBulkPlaceModel]?
     
     let categoriesAvailable: [String] = [
         "Search","Hotels", "Shopping","Food", "Museums",
@@ -96,8 +96,9 @@ class TrippyViewModel:ObservableObject {
     }
     
     func getCategorySugessions(coordinates:CLLocationCoordinate2D, category:String, limit:Int) {
-        self.placesForCateggory?.removeAll()
+        self.placesForSearch = nil
         yelpService.getYelpData(coordinates: coordinates, category: category, limit: limit) { (uncleanedModel) in
+            var cleanedDataGroup:[CleanYelpBulkPlaceModel] = []
             for place in uncleanedModel.businesses{
                 
                 let rating = self.getStarImage(with: place.rating ?? 0)
@@ -113,12 +114,15 @@ class TrippyViewModel:ObservableObject {
                 
                 let cleanData:CleanYelpBulkPlaceModel = CleanYelpBulkPlaceModel(rating: rating, price: price, phone: phone, id: id, category: category, reviewCount: reviewCount, name: name, url: url, image: image, adress: address)
                 
-                self.placesForCateggory?.append(cleanData)
-                
+                cleanedDataGroup.append(cleanData)
+            }
+            DispatchQueue.main.async {
+                self.placesForSearch = cleanedDataGroup
             }
         }
     }
 }
+
 //MARK: Category Functions
 extension TrippyViewModel{
     
@@ -147,7 +151,7 @@ extension TrippyViewModel{
         case "Yoga":
             return "lungs"
         case "Parks":
-            return "lungs"
+            return "leaf"
         case "Zoos":
             return "tortoise"
         case "Aquariums":

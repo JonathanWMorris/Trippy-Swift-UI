@@ -13,7 +13,6 @@ struct ImageView: View {
         Image(uiImage: image)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .cornerRadius(35)
     }
 }
 

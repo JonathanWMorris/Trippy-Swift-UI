@@ -6,22 +6,26 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct CategoryView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
     @Environment(\.colorScheme) var colorScheme
+    
+    var coordinates:CLLocationCoordinate2D
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
+    
     var body: some View {
         NavigationView{
             LazyVGrid(columns: columns) {
                 ForEach(trippyViewModel.categoriesAvailable, id: \.self) { trip in
-                    #warning("Need to add the destination")
                     NavigationLink(
-                        destination: Text("Destination"),
+                        destination: SearchView(coordinates: coordinates, category: trip),
                         label: {
                             VStack{
                                 Image(systemName: trippyViewModel.getSystemName(for: trip))
@@ -36,15 +40,14 @@ struct CategoryView: View {
                 }
             }
             .navigationTitle("Select Category")
-            .navigationBarTitleDisplayMode(.inline)
         }
-        
     }
+    
 }
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryView(coordinates: CLLocationCoordinate2D())
             .environmentObject(TrippyViewModel())
     }
 }

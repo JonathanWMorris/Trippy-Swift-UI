@@ -28,7 +28,7 @@ struct AddTripView: View {
             Section(header: Text("City Name").padding(.top, 20)){
                 TextField("Enter Name", text: $cityName)
             }
-            #warning("need to uncomment the datepicker once it states working")
+            #warning("need to uncomment the datepicker once it startes working")
             Section(header: Text("Date")) {
                 VStack(alignment:.leading) {
 //                    DatePicker("From", selection: $fromDate,displayedComponents: .date)

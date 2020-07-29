@@ -20,6 +20,8 @@
 		0E68276324C7B2CF002E6C8C /* TrippyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */; };
 		0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6F9FBA24C64EAB00993716 /* MainView.swift */; };
 		0E911E2724C9F7170034FD5F /* YelpAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E911E2624C9F7170034FD5F /* YelpAPIKey.swift */; };
+		0E92B2D924D1E54900C7DF87 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92B2D824D1E54900C7DF87 /* SearchView.swift */; };
+		0E92B2DB24D1E93400C7DF87 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E92B2DA24D1E93400C7DF87 /* SearchBarView.swift */; };
 		0E94B6E724C77428001ED859 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6E624C77428001ED859 /* MapView.swift */; };
 		0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6E924C79DD2001ED859 /* AddTripView.swift */; };
 		0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6EB24C7A818001ED859 /* TripModel.swift */; };
@@ -66,6 +68,8 @@
 		0E68276224C7B2CF002E6C8C /* TrippyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrippyViewModel.swift; sourceTree = "<group>"; };
 		0E6F9FBA24C64EAB00993716 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		0E911E2624C9F7170034FD5F /* YelpAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpAPIKey.swift; sourceTree = "<group>"; };
+		0E92B2D824D1E54900C7DF87 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		0E92B2DA24D1E93400C7DF87 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0E94B6E624C77428001ED859 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0E94B6E924C79DD2001ED859 /* AddTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripView.swift; sourceTree = "<group>"; };
 		0E94B6EB24C7A818001ED859 /* TripModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripModel.swift; sourceTree = "<group>"; };
@@ -181,14 +185,32 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		0E92B2D624D1E48C00C7DF87 /* TripDetails */ = {
+			isa = PBXGroup;
+			children = (
+				0E21718B24C9F20C009CF3FB /* TripDetailsPage.swift */,
+				0E64436524CA3D9D00A1F8D5 /* PlaceView.swift */,
+				0EB0EA1C24CFDDCC004F3A6E /* ImageView.swift */,
+				0E92B2D724D1E51700C7DF87 /* SearchViews */,
+			);
+			path = TripDetails;
+			sourceTree = "<group>";
+		};
+		0E92B2D724D1E51700C7DF87 /* SearchViews */ = {
+			isa = PBXGroup;
+			children = (
+				0E678E3D24D094C6000EC1E8 /* CategoryView.swift */,
+				0E92B2D824D1E54900C7DF87 /* SearchView.swift */,
+				0E92B2DA24D1E93400C7DF87 /* SearchBarView.swift */,
+			);
+			path = SearchViews;
+			sourceTree = "<group>";
+		};
 		0E94B6E824C79D99001ED859 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				0E6F9FBA24C64EAB00993716 /* MainView.swift */,
-				0E21718B24C9F20C009CF3FB /* TripDetailsPage.swift */,
-				0E678E3D24D094C6000EC1E8 /* CategoryView.swift */,
-				0E64436524CA3D9D00A1F8D5 /* PlaceView.swift */,
-				0EB0EA1C24CFDDCC004F3A6E /* ImageView.swift */,
+				0E92B2D624D1E48C00C7DF87 /* TripDetails */,
 				0E94B6E924C79DD2001ED859 /* AddTripView.swift */,
 				0E94B6E624C77428001ED859 /* MapView.swift */,
 			);
@@ -482,6 +504,8 @@
 				0E21718C24C9F20C009CF3FB /* TripDetailsPage.swift in Sources */,
 				0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */,
 				0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */,
+				0E92B2DB24D1E93400C7DF87 /* SearchBarView.swift in Sources */,
+				0E92B2D924D1E54900C7DF87 /* SearchView.swift in Sources */,
 				0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */,
 				0E64436B24CA3EA400A1F8D5 /* YelpPlaceModel.swift in Sources */,
 				0E64436824CA3E6000A1F8D5 /* YelpService.swift in Sources */,

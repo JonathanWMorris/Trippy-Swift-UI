@@ -18,6 +18,7 @@ struct TripDetailsPage: View {
     var cityName:String
     var fromDate:Date
     var toDate:Date
+    @State private var showCategorySheet:Bool = false
     
     var body: some View {
         VStack(alignment: .leading){
@@ -27,7 +28,7 @@ struct TripDetailsPage: View {
             Map(coordinateRegion: $region)
                 .frame(height: 200)
             ScrollView{
-                if let places = trippyViewModel.places{
+                if let places = trippyViewModel.placesForTrip{
                     ForEach(places) { place in
                         PlaceView(place: CleanYelpBulkPlaceModel(
                                     rating: trippyViewModel.getStarImage(with: place.rating),
@@ -41,12 +42,19 @@ struct TripDetailsPage: View {
             }
             Spacer()
                 .navigationTitle(cityName)
-        }.navigationBarItems(trailing: Button(action: {
+        }
+        .navigationBarItems(trailing: Button(action: {
             #warning("Set the add place view here")
+            showCategorySheet = true
         }, label: {
-            Image(systemName: "plus")
+            Image(systemName: "magnifyingglass")
                 .font(.title)
         }))
+        .sheet(isPresented: $showCategorySheet) {
+            CategoryView(coordinates: region.center)
+                .environmentObject(trippyViewModel)
+        }
+        
     }
 }
 

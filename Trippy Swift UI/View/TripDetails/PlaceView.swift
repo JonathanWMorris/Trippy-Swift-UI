@@ -13,7 +13,8 @@ struct PlaceView: View {
     var body: some View {
         HStack{
             ImageView(image: place.image)
-                .frame(width: 100)
+                .frame(width: 100, height:100)
+                .cornerRadius(10)
                 .clipped()
             
             VStack(alignment:.leading){
@@ -32,7 +33,7 @@ struct PlaceView: View {
             Spacer()
         }
         .frame(height:100)
-        .padding()
+        .padding(.leading,5)
     }
     
 }
