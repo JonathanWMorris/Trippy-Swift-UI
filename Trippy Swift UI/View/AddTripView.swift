@@ -31,8 +31,8 @@ struct AddTripView: View {
             #warning("need to uncomment the datepicker once it startes working")
             Section(header: Text("Date")) {
                 VStack(alignment:.leading) {
-//                    DatePicker("From", selection: $fromDate,displayedComponents: .date)
-//                    DatePicker("To     ", selection: $toDate,displayedComponents: .date)
+                    DatePicker("From", selection: $fromDate,displayedComponents: .date)
+                    DatePicker("To     ", selection: $toDate,displayedComponents: .date)
                 }
                 .padding([.top,.bottom])
             }
