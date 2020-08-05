@@ -34,6 +34,11 @@ struct MainView: View {
                                                 .font(.title)})
                 )
             }
+            .onAppear{
+                YelpService().getYelpDataWithCategory(coordinates: CLLocationCoordinate2D(), buisnessId: "WavvLdfdP6g8aZTtbBQHTw", category: nil, limit: 50) { (YelpCatergoryModel, YelpBusinessDetailsModel) in
+                    //
+                }
+            }
         }
     }
 }

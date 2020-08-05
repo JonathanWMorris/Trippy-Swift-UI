@@ -31,12 +31,12 @@ struct TripDetailsPage: View {
                 if let places = trippyViewModel.placesForTrip{
                     ForEach(places) { place in
                         PlaceView(place: CleanYelpBulkPlaceModel(
-                                    rating: trippyViewModel.getStarImage(with: place.rating),
+                                    ratingImage: trippyViewModel.getRatingImage(with: place.rating), rating: place.rating,
                                     price: place.price, phone: place.phone, id: place.id,
                                     category: place.category, reviewCount: place.reviewCount,
                                     name: place.name,url: place.url,
-                                    image: trippyViewModel.getImage(url: place.image1),
-                                    adress: place.address))
+                                    image: trippyViewModel.getImage(url: place.image),
+                                    address: place.address))
                     }
                 }
             }

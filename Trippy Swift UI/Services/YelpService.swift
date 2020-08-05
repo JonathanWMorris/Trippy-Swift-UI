@@ -8,9 +8,14 @@
 import Foundation
 import MapKit
 struct YelpService {
-    func getYelpData(coordinates:CLLocationCoordinate2D, category:String, limit:Int, completion: @escaping (YelpCatergoryModel) -> Void) {
+    func getYelpDataWithCategory(coordinates:CLLocationCoordinate2D?, buisnessId:String?, category:String?, limit:Int?, completion: @escaping (YelpCatergoryModel?,YelpBusinessDetailsModel?) -> Void) {
+        var stringURL:String = ""
+        if buisnessId != nil {
+            stringURL = "https://api.yelp.com/v3/businesses/\(buisnessId ?? "")"
+        }else{
+            stringURL = "https://api.yelp.com/v3/businesses/search?categories=\(category!)&latitude=\(coordinates!.latitude)&longitude=\(coordinates!.longitude)&limit=\(limit!)"
+        }
         
-        var stringURL = "https://api.yelp.com/v3/businesses/search?categories=\(category)&latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&limit=\(limit)"
         stringURL = stringURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         let url = URL(string: stringURL)!
@@ -24,8 +29,13 @@ struct YelpService {
                 return
             }
             do{
-                let result = try JSONDecoder().decode(YelpCatergoryModel.self, from: d)
-                completion(result)
+                if buisnessId != nil{
+                    let result = try JSONDecoder().decode(YelpBusinessDetailsModel.self, from: d)
+                    completion(nil,result)
+                }else{
+                    let result = try JSONDecoder().decode(YelpCatergoryModel.self, from: d)
+                    completion(result, nil)
+                }
             }catch{
                 print(error)
             }

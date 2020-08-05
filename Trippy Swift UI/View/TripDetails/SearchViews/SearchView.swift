@@ -23,7 +23,11 @@ struct SearchView: View {
             if trippyViewModel.placesForSearch != nil{
                 LazyVStack{
                     ForEach(trippyViewModel.placesForSearch!){place in
-                        PlaceView(place: place)
+                        NavigationLink(
+                            destination: DeatailView(id: place.id),
+                            label: {
+                                PlaceView(place: place)
+                            })
                     }
                 }
             }else{
@@ -33,7 +37,7 @@ struct SearchView: View {
         }
         .onAppear(){
             let alias = trippyViewModel.getCatagoryAlias(with: category)
-            trippyViewModel.getCategorySugessions(coordinates: coordinates, category: alias, limit: itemLimit)
+            trippyViewModel.getYelpData(coordinates: coordinates, category: alias, limit: itemLimit, buisnessId: nil)
             
         }
         .navigationTitle(category)

@@ -26,9 +26,9 @@ struct PlaceView: View {
                         .foregroundColor(Color(#colorLiteral(red: 0.3959157467, green: 0.6456650496, blue: 0.2190004587, alpha: 1)))
                         .fontWeight(.bold)
                 }
-                Text(place.adress)
+                Text(place.address)
                     .font(.caption2)
-                Image(uiImage: place.rating)
+                Image(uiImage: place.ratingImage)
             }
             Spacer()
         }
@@ -42,15 +42,15 @@ struct PlaceView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PlaceView(place: CleanYelpBulkPlaceModel(
-                        rating: #imageLiteral(resourceName: "4"), price: "$$", phone: "408444888408", id: "",
+                        ratingImage: #imageLiteral(resourceName: "4"), rating: 5.0, price: "$$", phone: "408444888408", id: "",
                         category: "Fast Food", reviewCount: 10000, name: "Jonathan's Burger Place",
-                        url: "www.google.com", image: #imageLiteral(resourceName: "placeholder"), adress: "Paris Dr. , California, US"))
+                        url: "www.google.com", image: #imageLiteral(resourceName: "placeholder"), address: "Paris Dr. , California, US"))
                 .environment(\.colorScheme, .light)
                 .previewLayout(.sizeThatFits)
             PlaceView(place: CleanYelpBulkPlaceModel(
-                        rating: #imageLiteral(resourceName: "4"), price: "$$", phone: "408444888408", id: "",
+                        ratingImage: #imageLiteral(resourceName: "4"), rating: 5.0, price: "$$", phone: "408444888408", id: "",
                         category: "Fast Food", reviewCount: 10000, name: "Jonathan's Burger Place",
-                        url: "www.google.com", image: #imageLiteral(resourceName: "placeholder"), adress: "Paris Dr. , California, US"))
+                        url: "www.google.com", image: #imageLiteral(resourceName: "placeholder"), address: "Paris Dr. , California, US"))
                 .previewLayout(.sizeThatFits)
                 .environment(\.colorScheme, .dark)
                 .background(Color.black)

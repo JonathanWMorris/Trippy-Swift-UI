@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import MapKit
 
 struct YelpCatergoryModel:Codable {
     let businesses: [YelpBulkPlaceModel]
 }
+
 struct YelpBulkPlaceModel:Codable {
     let rating:Double?
     let price:String?
@@ -21,11 +23,12 @@ struct YelpBulkPlaceModel:Codable {
     let name:String?
     let url:String?
     let image_url:String?
-    let location:location?
+    let location:Location?
 }
 
 struct CleanYelpBulkPlaceModel:Identifiable {
-    let rating:UIImage
+    let ratingImage:UIImage
+    let rating:Double
     let price:String
     let phone:String
     let id:String
@@ -34,16 +37,56 @@ struct CleanYelpBulkPlaceModel:Identifiable {
     let name:String
     let url:String
     let image:UIImage
-    let adress:String
+    let address:String
 }
 
-struct location:Codable {
+struct YelpBusinessDetailsModel:Codable {
+    let id:String
+    let name:String
+    let image_url:String?
+    let url:String
+    let phone:String?
+    let display_phone:String?
+    let rating:Double
+    let review_count:Int?
+    let location:Location
+    let coordinates:Coordinates?
+    let photos:[String]?
+    let price:String
+}
+
+struct CleanedBusinessDetailsModel {
+    let id:String
+    let name:String
+    let image:UIImage?
+    let imageURL:String
+    let url:URL
+    let urlString:String
+    let phone:String
+    let displayPhone:String
+    let reviewCount:Int
+    let ratingImage:UIImage
+    let address:String
+    let coordinates:CLLocationCoordinate2D
+    let photos:[UIImage]
+    let photosURL:[String]
+    let price:String
+}
+
+//MARK:Supporting Models
+struct Coordinates:Codable {
+    let latitude:Double
+    let longitude:Double
+}
+
+struct Location:Codable {
     let city:String?
     let country:String?
     let state:String?
     let address1:String?
     let address2:String?
     let zip_code:String?
+    //let display_address:String?
 }
 struct Categories:Codable {
     let alias:String?

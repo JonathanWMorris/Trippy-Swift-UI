@@ -34,7 +34,7 @@ struct MapView: View {
                         .padding([.trailing,.top,.leading],5)
                         .font(.largeTitle)
                         .foregroundColor(colorScheme == .dark ? .white:.black)
-                        .background(Color(.init(white: colorScheme == .dark ? 0:1, alpha: 0.3))
+                        .background(Color(.init(white: colorScheme == .dark ? 0.1:1, alpha: 0.3))
                                         .blur(radius: 1))
                     Spacer()
                 }.padding(.leading, 5)
@@ -46,7 +46,7 @@ struct MapView: View {
                         .font(.body)
                         .padding([.trailing,.bottom],5)
                         .foregroundColor(colorScheme == .dark ? .white:.black)
-                        .background(Color(.init(white: colorScheme == .dark ? 0:1, alpha: 0.3))
+                        .background(Color(.init(white: colorScheme == .dark ? 0.1:1, alpha: 0.3))
                                         .blur(radius: 1))
                     Spacer()
                 }.padding(.bottom, 20).padding(.leading,10)
@@ -61,7 +61,15 @@ struct MapView: View {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(cityName:"London", fromDate: Date(), toDate: Date())
-            .environment(\.colorScheme, .light)
+        Group {
+            MapView(cityName:"London", fromDate: Date(), toDate: Date())
+                .environment(\.colorScheme, .light)
+                .previewLayout(.sizeThatFits)
+                .environmentObject(TrippyViewModel())
+            MapView(cityName:"London", fromDate: Date(), toDate: Date())
+                .environment(\.colorScheme, .dark)
+                .previewLayout(.sizeThatFits)
+                .environmentObject(TrippyViewModel())
+        }
     }
 }

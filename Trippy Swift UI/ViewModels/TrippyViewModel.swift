@@ -18,6 +18,7 @@ class TrippyViewModel:ObservableObject {
     @Published var placesForTrip:Results<Places>?
     
     @Published var placesForSearch:[CleanYelpBulkPlaceModel]?
+    @Published var businessDetails:CleanedBusinessDetailsModel?
     
     let categoriesAvailable: [String] = [
         "Search","Hotels", "Shopping","Food", "Museums",
@@ -70,7 +71,7 @@ class TrippyViewModel:ObservableObject {
         
     }
     
-    func getStarImage(with number:Double) -> UIImage {
+    func getRatingImage(with number:Double) -> UIImage {
         switch number {
         case 0:
             return #imageLiteral(resourceName: "0")
@@ -95,29 +96,104 @@ class TrippyViewModel:ObservableObject {
         }
     }
     
-    func getCategorySugessions(coordinates:CLLocationCoordinate2D, category:String, limit:Int) {
+    func getAddress(address1:String?,address2:String?,city:String?,state:String?,country:String?,zipCode:String?) -> String {
+        return "\(address1 ?? ""), \(address2 ?? ""), \(city ?? ""), \(state ?? ""), \(country ?? ""), \(zipCode ?? "")"
+    }
+    
+    func getYelpData(coordinates:CLLocationCoordinate2D?, category:String?, limit:Int?, buisnessId:String?) {
         self.placesForSearch = nil
-        yelpService.getYelpData(coordinates: coordinates, category: category, limit: limit) { (uncleanedModel) in
-            var cleanedDataGroup:[CleanYelpBulkPlaceModel] = []
-            for place in uncleanedModel.businesses{
-                
-                let rating = self.getStarImage(with: place.rating ?? 0)
-                let price = place.price ?? ""
-                let phone = place.phone ?? ""
-                let id = place.id ?? ""
-                let category = place.categories?.first?.title ?? ""
-                let reviewCount = place.review_count ?? 0
-                let name = place.name ?? ""
-                let url = place.url ?? ""
-                let image = self.getImage(url: place.image_url)
-                let address = "\(place.location?.address1 ?? ""), \(place.location?.address2 ?? ""), \(place.location?.city ?? ""), \(place.location?.state ?? ""), \(place.location?.country ?? "")"
-                
-                let cleanData:CleanYelpBulkPlaceModel = CleanYelpBulkPlaceModel(rating: rating, price: price, phone: phone, id: id, category: category, reviewCount: reviewCount, name: name, url: url, image: image, adress: address)
-                
-                cleanedDataGroup.append(cleanData)
-            }
-            DispatchQueue.main.async {
-                self.placesForSearch = cleanedDataGroup
+        yelpService.getYelpDataWithCategory(coordinates: coordinates, buisnessId: buisnessId, category: category, limit: limit) { (uncleanedBulk,uncleanedBusiness)  in
+            if uncleanedBulk != nil{
+                var cleanedDataGroup:[CleanYelpBulkPlaceModel] = []
+                for place in uncleanedBulk!.businesses{
+                    
+                    let ratingImage = self.getRatingImage(with: place.rating ?? 0)
+                    let price = place.price ?? ""
+                    let phone = place.phone ?? ""
+                    let id = place.id ?? ""
+                    let category = place.categories?.first?.title ?? ""
+                    let reviewCount = place.review_count ?? 0
+                    let name = place.name ?? ""
+                    let url = place.url ?? ""
+                    let image = self.getImage(url: place.image_url)
+                    let address = self.getAddress(address1: place.location?.address1, address2: place.location?.address2,
+                                                  city: place.location?.city, state: place.location?.state, country: place.location?.country,
+                                                  zipCode: place.location?.zip_code)
+                    
+                    let rating = place.rating ?? 0.0
+                    
+                    let cleanData:CleanYelpBulkPlaceModel =
+                        CleanYelpBulkPlaceModel(ratingImage: ratingImage, rating: rating, price: price,
+                                                phone: phone, id: id, category: category, reviewCount: reviewCount,
+                                                name: name, url: url, image: image, address: address)
+                    
+                    cleanedDataGroup.append(cleanData)
+                }
+                DispatchQueue.main.async {
+                    self.placesForSearch = cleanedDataGroup
+                }
+            } else if uncleanedBusiness != nil{
+//                struct YelpBusinessDetailsModel:Codable {
+//                    let id:String
+//                    let name:String
+//                    let image_url:String
+//                    let phone:String?
+//                    let display_phone:String?
+//                    let rating:Double
+//                    let review_count:Int?
+//                    let location:Location
+//                    let coordinates:Coordinates?
+//                    let photos:[String]?
+//                    let price:String
+//                }
+//
+//                struct CleanedBusinessDetailsModel {
+//                    let id:String
+//                    let name:String
+//                    let image:UIImage?
+//                    let imageURL:String
+//                    let url:URL
+//                    let urlString:String
+//                    let phone:String
+//                    let displayPhone:String
+//                    let reviewCount:Int
+//                    let ratingImage:UIImage
+//                    let address:String
+//                    let coordinates:CLLocationCoordinate2D
+//                    let photos:[UIImage]
+//                    let photosURL:[String]
+//                    let price:String
+//                }
+                let id = uncleanedBusiness?.id ?? ""
+                let name = uncleanedBusiness?.name ?? ""
+                let image = self.getImage(url: uncleanedBusiness?.image_url)
+                let imageURL = uncleanedBusiness?.image_url ?? ""
+                let url = URL(string: uncleanedBusiness?.url ?? "https://www.google.com")!
+                let urlString = uncleanedBusiness?.url ?? ""
+                let phone = uncleanedBusiness?.phone ?? ""
+                let displayPhone = uncleanedBusiness?.display_phone ?? ""
+                let reviewCount = uncleanedBusiness?.review_count ?? 0
+                let ratingImage = self.getRatingImage(with: uncleanedBusiness?.rating ?? 0.0)
+                let address = self.getAddress(address1: uncleanedBusiness?.location.address1, address2: uncleanedBusiness?.location.address2,
+                                              city: uncleanedBusiness?.location.city, state: uncleanedBusiness?.location.state,
+                                              country: uncleanedBusiness?.location.country, zipCode: uncleanedBusiness?.location.zip_code)
+                let coordinates = CLLocationCoordinate2D(latitude: uncleanedBusiness!.coordinates!.latitude, longitude: uncleanedBusiness!.coordinates!.longitude)
+                let photosURL = uncleanedBusiness?.photos ?? [""]
+                var photos:[UIImage] = [#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder"),#imageLiteral(resourceName: "placeholder")]
+                if let UNphotos = uncleanedBusiness?.photos{
+                    photos.removeAll()
+                    for photo in UNphotos {
+                        photos.append(self.getImage(url: photo))
+                    }
+                }
+                let price = uncleanedBusiness?.price ?? ""
+                let cleanedBuisness = CleanedBusinessDetailsModel(id: id, name: name, image: image, imageURL: imageURL,
+                                                                    url: url, urlString: urlString, phone: phone, displayPhone: displayPhone,
+                                                                    reviewCount: reviewCount, ratingImage: ratingImage, address: address, coordinates: coordinates,
+                                                                    photos: photos, photosURL: photosURL, price: price)
+                DispatchQueue.main.async {
+                    self.businessDetails = cleanedBuisness
+                }
             }
         }
     }

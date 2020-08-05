@@ -30,6 +30,7 @@ struct CategoryView: View {
                             VStack{
                                 Image(systemName: trippyViewModel.getSystemName(for: trip))
                                     .renderingMode(.original)
+                                    .foregroundColor(colorScheme == .dark ? .white:.black)
                                     .font(.title)
                                     .padding(.bottom)
                                 Text(trip)

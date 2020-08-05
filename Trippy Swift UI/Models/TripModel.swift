@@ -22,10 +22,10 @@ class Trip: Object, Identifiable {
 class Places: Object, Identifiable {
     @objc dynamic var id:String = ""
     @objc dynamic var name:String = ""
-    @objc dynamic var image1:String = ""
-    @objc dynamic var image2:String = ""
-    @objc dynamic var image3:String = ""
-    @objc dynamic var image4:String = ""
+    @objc dynamic var image:String = ""
+    @objc dynamic var photo1:String = ""
+    @objc dynamic var photo2:String = ""
+    @objc dynamic var photo3:String = ""
     @objc dynamic var rating:Double = 0
     @objc dynamic var price:String = "$"
     @objc dynamic var reviewCount:Int = 0
