@@ -15,15 +15,16 @@ struct MainView: View {
         NavigationView{
             ZStack{
                 ScrollView{
-                    if trippyViewModel.trips != nil {
-                        ForEach(trippyViewModel.trips!){trip in
+                    if trippyViewModel.allTrips != nil {
+                        ForEach(trippyViewModel.allTrips!){trip in
                             let region = MKCoordinateRegion(
                                 center: CLLocationCoordinate2D(latitude: trip.locationLat, longitude: trip.locationLon),
                                 span: MKCoordinateSpan(latitudeDelta: 2.0, longitudeDelta: 2.0)
                             )
-                            NavigationLink(destination: TripDetailsPage(region: region, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate), label: {
+                            NavigationLink(destination: TripDetailsPage(region: region, trip:trip, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate), label: {
                                 MapView(mapRegion: region, cityName: trip.cityName, fromDate: trip.fromDate, toDate: trip.toDate)
                             })
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
                 }
@@ -36,7 +37,6 @@ struct MainView: View {
             }
             .onAppear{
                 YelpService().getYelpDataWithCategory(coordinates: CLLocationCoordinate2D(), buisnessId: "WavvLdfdP6g8aZTtbBQHTw", category: nil, limit: 50) { (YelpCatergoryModel, YelpBusinessDetailsModel) in
-                    //
                 }
             }
         }

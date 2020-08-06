@@ -26,7 +26,7 @@
 		0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E94B6EB24C7A818001ED859 /* TripModel.swift */; };
 		0EB0EA1D24CFDDCC004F3A6E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB0EA1C24CFDDCC004F3A6E /* ImageView.swift */; };
 		0EDFB60D24D1F970004C6B61 /* YelpAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFB60C24D1F970004C6B61 /* YelpAPIKey.swift */; };
-		0EDFB60F24D282D1004C6B61 /* DeatailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFB60E24D282D1004C6B61 /* DeatailView.swift */; };
+		0EDFB60F24D282D1004C6B61 /* PlaceDeatailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDFB60E24D282D1004C6B61 /* PlaceDeatailView.swift */; };
 		1827FE9A6DBCE510EBF5BC3F /* Pods_Trippy_Swift_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2563A3C31099D3EA07591281 /* Pods_Trippy_Swift_UITests.framework */; };
 		555DC627F04FB68D4911CE6C /* Pods_Trippy_Swift_UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97491BE8849D3D8B3C7FC501 /* Pods_Trippy_Swift_UI.framework */; };
 		7E509025C9346399CCE4863E /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19C77D32C2E654210F11513 /* Pods_Trippy_Swift_UI_Trippy_Swift_UIUITests.framework */; };
@@ -76,7 +76,7 @@
 		0EB0EA1C24CFDDCC004F3A6E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		0ED8C927DE5AE192204999D8 /* Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UI-Trippy Swift UIUITests/Pods-Trippy Swift UI-Trippy Swift UIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0EDFB60C24D1F970004C6B61 /* YelpAPIKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpAPIKey.swift; sourceTree = "<group>"; };
-		0EDFB60E24D282D1004C6B61 /* DeatailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatailView.swift; sourceTree = "<group>"; };
+		0EDFB60E24D282D1004C6B61 /* PlaceDeatailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDeatailView.swift; sourceTree = "<group>"; };
 		2563A3C31099D3EA07591281 /* Pods_Trippy_Swift_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trippy_Swift_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70B9FB576581734C7CDEC2CA /* Pods-Trippy Swift UI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trippy Swift UI.release.xcconfig"; path = "Target Support Files/Pods-Trippy Swift UI/Pods-Trippy Swift UI.release.xcconfig"; sourceTree = "<group>"; };
 		97491BE8849D3D8B3C7FC501 /* Pods_Trippy_Swift_UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trippy_Swift_UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +143,7 @@
 				0E41460724C53E1600305E97 /* Trippy_Swift_UIApp.swift */,
 				0E64436924CA3E6700A1F8D5 /* Services */,
 				0E94B6ED24C7A82D001ED859 /* Models */,
-				0E94B6E824C79D99001ED859 /* View */,
+				0E94B6E824C79D99001ED859 /* Views */,
 				0E94B6EE24C7A836001ED859 /* ViewModels */,
 				0E41460B24C53E1800305E97 /* Assets.xcassets */,
 				0E41461024C53E1800305E97 /* Info.plist */,
@@ -204,20 +204,20 @@
 				0E678E3D24D094C6000EC1E8 /* CategoryView.swift */,
 				0E92B2D824D1E54900C7DF87 /* SearchView.swift */,
 				0E92B2DA24D1E93400C7DF87 /* SearchBarView.swift */,
-				0EDFB60E24D282D1004C6B61 /* DeatailView.swift */,
+				0EDFB60E24D282D1004C6B61 /* PlaceDeatailView.swift */,
 			);
 			path = SearchViews;
 			sourceTree = "<group>";
 		};
-		0E94B6E824C79D99001ED859 /* View */ = {
+		0E94B6E824C79D99001ED859 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				0E6F9FBA24C64EAB00993716 /* MainView.swift */,
-				0E92B2D624D1E48C00C7DF87 /* TripDetails */,
 				0E94B6E924C79DD2001ED859 /* AddTripView.swift */,
 				0E94B6E624C77428001ED859 /* MapView.swift */,
+				0E92B2D624D1E48C00C7DF87 /* TripDetails */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0E94B6ED24C7A82D001ED859 /* Models */ = {
@@ -508,7 +508,7 @@
 				0E6F9FBB24C64EAB00993716 /* MainView.swift in Sources */,
 				0E94B6EC24C7A818001ED859 /* TripModel.swift in Sources */,
 				0E92B2DB24D1E93400C7DF87 /* SearchBarView.swift in Sources */,
-				0EDFB60F24D282D1004C6B61 /* DeatailView.swift in Sources */,
+				0EDFB60F24D282D1004C6B61 /* PlaceDeatailView.swift in Sources */,
 				0E92B2D924D1E54900C7DF87 /* SearchView.swift in Sources */,
 				0E94B6EA24C79DD2001ED859 /* AddTripView.swift in Sources */,
 				0E64436B24CA3EA400A1F8D5 /* YelpPlaceModel.swift in Sources */,

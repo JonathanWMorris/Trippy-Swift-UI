@@ -8,13 +8,13 @@
 import SwiftUI
 import MapKit
 
-struct DeatailView: View {
+struct PlaceDeatailView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
-    @State var isAdded = false
+    @State var isAdded = true
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.openURL) var openURL
     
-    var id:String
+    var id:String?
     
     var body: some View {
         VStack(alignment:.leading){
@@ -42,7 +42,7 @@ struct DeatailView: View {
                     }
                     Text(place.address)
                         .font(.body)
-                    Text(place.displayPhone)
+                    Text(place.phone)
                         .font(.body)
                     HStack{
                         Image(uiImage: place.ratingImage)
@@ -77,7 +77,7 @@ struct DeatailView: View {
                     Button(action: {
                         //This is the directions button
                         let geocoder = CLGeocoder()
-                        let str = place.address // A string of the address info you already have
+                        let str = place.address
                         geocoder.geocodeAddressString(str) { (placemarksOptional, error) -> Void in
                             if let placemarks = placemarksOptional {
                                 if (placemarks.first?.location) != nil {
@@ -110,20 +110,36 @@ struct DeatailView: View {
                 }
                 .padding(.horizontal)
                 .frame(height:60)
-                
+                .onAppear{
+                    if trippyViewModel.isPlaceAdded(placeName: place.name){
+                        isAdded = true
+                    }
+                }
+                .onDisappear{
+                    if isAdded && !trippyViewModel.isPlaceAdded(placeName: place.name){
+                        trippyViewModel.addPlaceToSelectedTrip(business: place)
+                    }else if !isAdded && trippyViewModel.isPlaceAdded(placeName: place.name){
+                        trippyViewModel.removePlace(placeName: place.name)
+                    }
+                    isAdded = false
+                }
                 Spacer()
+                    
             }
             else{
                 ProgressView()
             }
         }
         .onAppear{
-            trippyViewModel.businessDetails = nil
-            trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: id)
+            if id != nil{
+                trippyViewModel.businessDetails = nil
+                trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: id!)
+            }else{
+                trippyViewModel.businessDetails = nil
+                trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: trippyViewModel.selectedID)
+            }
         }
         .navigationBarItems(trailing: Button(action: {
-            //The add function
-            #warning("set the Add Function")
             withAnimation{
                 isAdded.toggle()
             }
@@ -139,7 +155,7 @@ struct DeatailView: View {
 struct DeatailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            DeatailView(id: "WavvLdfdP6g8aZTtbBQHTw")
+            PlaceDeatailView(id: "WavvLdfdP6g8aZTtbBQHTw")
         }
         .previewDevice("iPhone 11 Pro")
     }

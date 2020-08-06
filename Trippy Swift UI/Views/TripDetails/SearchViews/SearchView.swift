@@ -24,7 +24,7 @@ struct SearchView: View {
                 LazyVStack{
                     ForEach(trippyViewModel.placesForSearch!){place in
                         NavigationLink(
-                            destination: DeatailView(id: place.id),
+                            destination: PlaceDeatailView(id: place.id),
                             label: {
                                 PlaceView(place: place)
                             })

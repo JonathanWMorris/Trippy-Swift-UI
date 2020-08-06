@@ -39,7 +39,6 @@ struct YelpBusinessDetailsModel:Codable {
     let image_url:String?
     let url:String?
     let phone:String?
-    let display_phone:String?
     let rating:Double?
     let review_count:Int?
     let location:Location
@@ -56,9 +55,9 @@ struct CleanedBusinessDetailsModel {
     let url:URL
     let urlString:String
     let phone:String
-    let displayPhone:String
     let reviewCount:Int
     let ratingImage:UIImage
+    let rating:Double
     let address:String
     let coordinates:CLLocationCoordinate2D
     let photos:[UIImage]
