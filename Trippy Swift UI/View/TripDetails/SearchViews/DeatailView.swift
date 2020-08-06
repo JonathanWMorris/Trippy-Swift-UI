@@ -12,6 +12,8 @@ struct DeatailView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
     @State var isAdded = false
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.openURL) var openURL
+    
     var id:String
     
     var body: some View {
@@ -53,37 +55,58 @@ struct DeatailView: View {
                 HStack{
                     Button(action: {
                         //"This is the call button"
-                        #warning("set the call button")
+                        let dash = CharacterSet(charactersIn: "-")
+                        
+                        let cleanString =
+                            place.phone.trimmingCharacters(in: dash)
+                        
+                        let tel = "tel://"
+                        let formattedString = tel + cleanString
+                        let url: NSURL = URL(string: formattedString)! as NSURL
+                        UIApplication.shared.open(url as URL)
+                        
                     }, label: {
                         Image(systemName: "phone")
                             .resizable()
-                            .renderingMode(.original)
                             .font(.largeTitle)
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(colorScheme == .dark ? .white:.black)
                     })
+                    .buttonStyle(PlainButtonStyle())
                     Spacer()
                     Button(action: {
                         //This is the directions button
-                        #warning("set the directions button")
+                        let geocoder = CLGeocoder()
+                        let str = place.address // A string of the address info you already have
+                        geocoder.geocodeAddressString(str) { (placemarksOptional, error) -> Void in
+                            if let placemarks = placemarksOptional {
+                                if (placemarks.first?.location) != nil {
+                                    let string = "?sdaddr=\(placemarks.first!.postalCode!)&daddr=\(placemarks.first!.name!)"
+                                    let query = string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
+                                    let path = "http://maps.apple.com/" + query
+                                    if let url = URL(string: path) {
+                                        openURL(url)
+                                    }
+                                }
+                            }
+                        }
                     }, label: {
                         Image(systemName: "location")
                             .resizable()
-                            .renderingMode(.original)
                             .font(.largeTitle)
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(colorScheme == .dark ? .white:.black)
                     })
+                    .buttonStyle(PlainButtonStyle())
                     Spacer()
                     Button(action: {
                         //This is the Yelp Button
-                        #warning("set the yelp button")
+                        openURL(place.url)
                     }, label: {
                         Image(uiImage: #imageLiteral(resourceName: "yelpLogo"))
-                            .renderingMode(.original)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                     })
+                    .buttonStyle(PlainButtonStyle())
                 }
                 .padding(.horizontal)
                 .frame(height:60)

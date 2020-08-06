@@ -20,6 +20,9 @@ class TrippyViewModel:ObservableObject {
     @Published var placesForSearch:[CleanYelpBulkPlaceModel]? = nil
     @Published var businessDetails:CleanedBusinessDetailsModel? = nil
     
+    @Published var totalObjectsToFetch = 1.0
+    @Published var objectsFetched = 0.0
+    
     let categoriesAvailable: [String] = [
         "Search","Hotels", "Shopping","Food", "Museums",
         "Tours", "Beaches", "Theme Parks","Activities","Spas",
@@ -97,38 +100,42 @@ class TrippyViewModel:ObservableObject {
     }
     
     func getAddress(address1:String?,address2:String?,city:String?,state:String?,country:String?,zipCode:String?) -> String {
-        return "\(address1 ?? ""), \(address2 ?? ""), \(city ?? ""), \(state ?? ""), \(country ?? ""), \(zipCode ?? "")"
+        if address2 != ""{
+            return "\(address1 ?? ""), \(address2 ?? ""), \(city ?? ""), \(state ?? ""), \(country ?? ""), \(zipCode ?? "")"
+        }else{
+            return "\(address1 ?? ""), \(city ?? ""), \(state ?? ""), \(country ?? ""), \(zipCode ?? "")"
+        }
+        
     }
     
     func getYelpData(coordinates:CLLocationCoordinate2D?, category:String?, limit:Int?, buisnessId:String?) {
         
-        yelpService.getYelpDataWithCategory(coordinates: coordinates, buisnessId: buisnessId, category: category, limit: limit) { (uncleanedBulk,uncleanedBusiness)  in
+        yelpService.getYelpDataWithCategory(coordinates: coordinates, buisnessId: buisnessId, category: category, limit: limit) { (uncleanedBulk, uncleanedBusiness)  in
             if uncleanedBulk != nil{
                 DispatchQueue.main.async {
                     self.placesForSearch = nil
+                    self.totalObjectsToFetch = Double(uncleanedBulk!.businesses.count)
+                    self.objectsFetched = 0.0
                 }
                 var cleanedDataGroup:[CleanYelpBulkPlaceModel] = []
                 for place in uncleanedBulk!.businesses{
-                    
+                    DispatchQueue.main.async {
+                        self.objectsFetched += 1.0
+                    }
                     let ratingImage = self.getRatingImage(with: place.rating ?? 0)
                     let price = place.price ?? ""
-                    let phone = place.phone ?? ""
                     let id = place.id ?? ""
-                    let category = place.categories?.first?.title ?? ""
                     let reviewCount = place.review_count ?? 0
                     let name = place.name ?? ""
-                    let url = place.url ?? ""
                     let image = self.getImage(url: place.image_url)
                     let address = self.getAddress(address1: place.location?.address1, address2: place.location?.address2,
                                                   city: place.location?.city, state: place.location?.state, country: place.location?.country,
                                                   zipCode: place.location?.zip_code)
                     
-                    let rating = place.rating ?? 0.0
-                    
                     let cleanData:CleanYelpBulkPlaceModel =
-                        CleanYelpBulkPlaceModel(ratingImage: ratingImage, rating: rating, price: price,
-                                                phone: phone, id: id, category: category, reviewCount: reviewCount,
-                                                name: name, url: url, image: image, address: address)
+                        CleanYelpBulkPlaceModel(ratingImage: ratingImage, price: price,
+                                                 id: id, reviewCount: reviewCount,
+                                                name: name, image: image, address: address)
                     
                     cleanedDataGroup.append(cleanData)
                 }

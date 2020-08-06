@@ -29,10 +29,13 @@ struct SearchView: View {
                                 PlaceView(place: place)
                             })
                             .buttonStyle(PlainButtonStyle())
+                            .animation(.default)
                     }
-                }
+                }.animation(.default)
             }else{
-                ProgressView()
+                ProgressView("Loading",value:trippyViewModel.objectsFetched,total:trippyViewModel.totalObjectsToFetch)
+                    .padding(.horizontal)
+                    .animation(.default)
             }
             Spacer()
         }
@@ -40,6 +43,8 @@ struct SearchView: View {
             if trippyViewModel.categorySelected != category{
                 trippyViewModel.categorySelected = category
                 trippyViewModel.placesForSearch?.removeAll()
+                trippyViewModel.objectsFetched = 0.0
+                trippyViewModel.totalObjectsToFetch = 1.0
                 let alias = trippyViewModel.getCatagoryAlias(with: category)
                 trippyViewModel.getYelpData(coordinates: coordinates, category: alias, limit: itemLimit, buisnessId: nil)
             }

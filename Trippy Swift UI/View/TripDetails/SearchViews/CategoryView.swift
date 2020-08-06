@@ -29,15 +29,13 @@ struct CategoryView: View {
                         label: {
                             VStack{
                                 Image(systemName: trippyViewModel.getSystemName(for: trip))
-                                    .renderingMode(.original)
-                                    .foregroundColor(colorScheme == .dark ? .white:.black)
                                     .font(.title)
                                     .padding(.bottom)
                                 Text(trip)
-                                    .foregroundColor(colorScheme == .dark ? .white:.black)
                                     .multilineTextAlignment(.center)
                             }.padding()
                         })
+                        .buttonStyle(PlainButtonStyle())
                 }
             }
             .navigationTitle("Select Category")

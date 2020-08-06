@@ -31,10 +31,10 @@ struct TripDetailsPage: View {
                 if let places = trippyViewModel.placesForTrip{
                     ForEach(places) { place in
                         PlaceView(place: CleanYelpBulkPlaceModel(
-                                    ratingImage: trippyViewModel.getRatingImage(with: place.rating), rating: place.rating,
-                                    price: place.price, phone: place.phone, id: place.id,
-                                    category: place.category, reviewCount: place.reviewCount,
-                                    name: place.name,url: place.url,
+                                    ratingImage: trippyViewModel.getRatingImage(with: place.rating),
+                                    price: place.price, id: place.id,
+                                    reviewCount: place.reviewCount,
+                                    name: place.name,
                                     image: trippyViewModel.getImage(url: place.image),
                                     address: place.address))
                     }
@@ -44,7 +44,6 @@ struct TripDetailsPage: View {
                 .navigationTitle(cityName)
         }
         .navigationBarItems(trailing: Button(action: {
-            #warning("Set the add place view here")
             showCategorySheet = true
         }, label: {
             Image(systemName: "magnifyingglass")

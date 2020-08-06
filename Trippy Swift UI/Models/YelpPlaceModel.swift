@@ -16,26 +16,19 @@ struct YelpCatergoryModel:Codable {
 struct YelpBulkPlaceModel:Codable {
     let rating:Double?
     let price:String?
-    let phone:String?
     let id:String?
-    let categories:[Categories]?
     let review_count:Int?
     let name:String?
-    let url:String?
     let image_url:String?
     let location:Location?
 }
 
 struct CleanYelpBulkPlaceModel:Identifiable {
     let ratingImage:UIImage
-    let rating:Double
     let price:String
-    let phone:String
     let id:String
-    let category:String
     let reviewCount:Int
     let name:String
-    let url:String
     let image:UIImage
     let address:String
 }

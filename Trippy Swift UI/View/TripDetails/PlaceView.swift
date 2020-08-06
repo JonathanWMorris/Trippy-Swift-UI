@@ -42,15 +42,14 @@ struct PlaceView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             PlaceView(place: CleanYelpBulkPlaceModel(
-                        ratingImage: #imageLiteral(resourceName: "4"), rating: 5.0, price: "$$", phone: "408444888408", id: "",
-                        category: "Fast Food", reviewCount: 10000, name: "Jonathan's Burger Place",
-                        url: "www.google.com", image: #imageLiteral(resourceName: "placeholder"), address: "Paris Dr. , California, US"))
+                        ratingImage: #imageLiteral(resourceName: "4"), price: "$$",
+                        id: "Fast Food", reviewCount: 10000, name: "Jonathan's Burger Place",
+                        image: #imageLiteral(resourceName: "placeholder"), address: "Paris Dr. , California, US"))
                 .environment(\.colorScheme, .light)
                 .previewLayout(.sizeThatFits)
             PlaceView(place: CleanYelpBulkPlaceModel(
-                        ratingImage: #imageLiteral(resourceName: "4"), rating: 5.0, price: "$$", phone: "408444888408", id: "",
-                        category: "Fast Food", reviewCount: 10000, name: "Jonathan's Burger Place",
-                        url: "www.google.com", image: #imageLiteral(resourceName: "placeholder"), address: "Paris Dr. , California, US"))
+                        ratingImage: #imageLiteral(resourceName: "4"), price: "$$", id: "",
+                        reviewCount: 10000, name: "Jonathan's Burger Place", image: #imageLiteral(resourceName: "placeholder"), address: "Paris Dr. , California, US"))
                 .previewLayout(.sizeThatFits)
                 .environment(\.colorScheme, .dark)
                 .background(Color.black)
