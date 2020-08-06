@@ -88,6 +88,8 @@ class TrippyViewModel:ObservableObject {
             return #imageLiteral(resourceName: "2_half")
         case 3:
             return #imageLiteral(resourceName: "3")
+        case 3.5:
+            return #imageLiteral(resourceName: "3_half")
         case 4:
             return #imageLiteral(resourceName: "4")
         case 4.5:
