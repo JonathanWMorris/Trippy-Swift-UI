@@ -16,9 +16,9 @@ class TrippyViewModel:ObservableObject {
     
     @Published var trips:Results<Trip>?
     @Published var placesForTrip:Results<Places>?
-    
-    @Published var placesForSearch:[CleanYelpBulkPlaceModel]?
-    @Published var businessDetails:CleanedBusinessDetailsModel?
+    @Published var categorySelected = ""
+    @Published var placesForSearch:[CleanYelpBulkPlaceModel]? = nil
+    @Published var businessDetails:CleanedBusinessDetailsModel? = nil
     
     let categoriesAvailable: [String] = [
         "Search","Hotels", "Shopping","Food", "Museums",
@@ -101,9 +101,12 @@ class TrippyViewModel:ObservableObject {
     }
     
     func getYelpData(coordinates:CLLocationCoordinate2D?, category:String?, limit:Int?, buisnessId:String?) {
-        self.placesForSearch = nil
+        
         yelpService.getYelpDataWithCategory(coordinates: coordinates, buisnessId: buisnessId, category: category, limit: limit) { (uncleanedBulk,uncleanedBusiness)  in
             if uncleanedBulk != nil{
+                DispatchQueue.main.async {
+                    self.placesForSearch = nil
+                }
                 var cleanedDataGroup:[CleanYelpBulkPlaceModel] = []
                 for place in uncleanedBulk!.businesses{
                     
@@ -133,37 +136,10 @@ class TrippyViewModel:ObservableObject {
                     self.placesForSearch = cleanedDataGroup
                 }
             } else if uncleanedBusiness != nil{
-//                struct YelpBusinessDetailsModel:Codable {
-//                    let id:String
-//                    let name:String
-//                    let image_url:String
-//                    let phone:String?
-//                    let display_phone:String?
-//                    let rating:Double
-//                    let review_count:Int?
-//                    let location:Location
-//                    let coordinates:Coordinates?
-//                    let photos:[String]?
-//                    let price:String
-//                }
-//
-//                struct CleanedBusinessDetailsModel {
-//                    let id:String
-//                    let name:String
-//                    let image:UIImage?
-//                    let imageURL:String
-//                    let url:URL
-//                    let urlString:String
-//                    let phone:String
-//                    let displayPhone:String
-//                    let reviewCount:Int
-//                    let ratingImage:UIImage
-//                    let address:String
-//                    let coordinates:CLLocationCoordinate2D
-//                    let photos:[UIImage]
-//                    let photosURL:[String]
-//                    let price:String
-//                }
+                DispatchQueue.main.async {
+                    self.businessDetails = nil
+                }
+                
                 let id = uncleanedBusiness?.id ?? ""
                 let name = uncleanedBusiness?.name ?? ""
                 let image = self.getImage(url: uncleanedBusiness?.image_url)

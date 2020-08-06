@@ -13,9 +13,12 @@ struct DeatailView: View {
     @State var isAdded = false
     @Environment(\.colorScheme) var colorScheme
     var id:String
+    
     var body: some View {
-        if let place = trippyViewModel.businessDetails {
-            VStack(alignment:.leading){
+        VStack(alignment:.leading){
+            if trippyViewModel.businessDetails != nil{
+                let place = trippyViewModel.businessDetails!
+                
                 ScrollView(.horizontal){
                     HStack{
                         ImageView(image: place.photos[0])
@@ -87,24 +90,26 @@ struct DeatailView: View {
                 
                 Spacer()
             }
-            .navigationBarItems(trailing: Button(action: {
-                //The add function
-                #warning("set the Add Function")
-                withAnimation{
-                    isAdded.toggle()
-                }
-            }, label: {
-                Image(systemName: isAdded ? "checkmark":"plus")
-                    .font(.title)
-                    .animation(.spring())
-            }))
-            .navigationBarTitleDisplayMode(.inline)
-        }else{
-            ProgressView()
-                .onAppear{
-                    trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: id)
-                }
+            else{
+                ProgressView()
+            }
         }
+        .onAppear{
+            trippyViewModel.businessDetails = nil
+            trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: id)
+        }
+        .navigationBarItems(trailing: Button(action: {
+            //The add function
+            #warning("set the Add Function")
+            withAnimation{
+                isAdded.toggle()
+            }
+        }, label: {
+            Image(systemName: isAdded ? "checkmark":"plus")
+                .font(.title)
+                .animation(.spring())
+        }))
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

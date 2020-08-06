@@ -41,18 +41,18 @@ struct CleanYelpBulkPlaceModel:Identifiable {
 }
 
 struct YelpBusinessDetailsModel:Codable {
-    let id:String
-    let name:String
+    let id:String?
+    let name:String?
     let image_url:String?
-    let url:String
+    let url:String?
     let phone:String?
     let display_phone:String?
-    let rating:Double
+    let rating:Double?
     let review_count:Int?
     let location:Location
     let coordinates:Coordinates?
     let photos:[String]?
-    let price:String
+    let price:String?
 }
 
 struct CleanedBusinessDetailsModel {
@@ -86,7 +86,6 @@ struct Location:Codable {
     let address1:String?
     let address2:String?
     let zip_code:String?
-    //let display_address:String?
 }
 struct Categories:Codable {
     let alias:String?

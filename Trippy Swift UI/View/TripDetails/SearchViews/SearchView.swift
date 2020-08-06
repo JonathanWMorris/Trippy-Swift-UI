@@ -28,6 +28,7 @@ struct SearchView: View {
                             label: {
                                 PlaceView(place: place)
                             })
+                            .buttonStyle(PlainButtonStyle())
                     }
                 }
             }else{
@@ -36,9 +37,12 @@ struct SearchView: View {
             Spacer()
         }
         .onAppear(){
-            let alias = trippyViewModel.getCatagoryAlias(with: category)
-            trippyViewModel.getYelpData(coordinates: coordinates, category: alias, limit: itemLimit, buisnessId: nil)
-            
+            if trippyViewModel.categorySelected != category{
+                trippyViewModel.categorySelected = category
+                trippyViewModel.placesForSearch?.removeAll()
+                let alias = trippyViewModel.getCatagoryAlias(with: category)
+                trippyViewModel.getYelpData(coordinates: coordinates, category: alias, limit: itemLimit, buisnessId: nil)
+            }
         }
         .navigationTitle(category)
     }
