@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import RealmSwift
 
 struct TripDetailsPage: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
@@ -19,6 +20,8 @@ struct TripDetailsPage: View {
     var cityName:String
     var fromDate:Date
     var toDate:Date
+    let realm = try! Realm()
+    @State var places:Results<Place>? = nil
     
     @State private var showSheet:Bool = false
     @State private var showSelectedPlace:Bool = false
@@ -31,9 +34,9 @@ struct TripDetailsPage: View {
             Map(coordinateRegion: $region)
                 .frame(height: 200)
             
-            if trip.places.isEmpty == false{
-                ScrollView{
-                    ForEach(trip.places) { place in
+            if places != nil && !places!.isEmpty{
+                List{
+                    ForEach(places!) { place in
                         Button(action: {
                             trippyViewModel.selectedID = place.id
                             showSelectedPlace = true
@@ -46,15 +49,27 @@ struct TripDetailsPage: View {
                                         name: place.name,
                                         image: trippyViewModel.getImage(url: place.imageURL),
                                         address: place.address))
-                        }.buttonStyle(PlainButtonStyle())
+                        }
+                        .buttonStyle(PlainButtonStyle())
                     }
+                    #warning("uncomment when it starts working")
+//                    .onDelete { (Index) in
+//                        DispatchQueue.main.async {
+//                            try! realm.write{
+//                                trip.places.remove(atOffsets: Index)
+//                            }
+//                        }
+//                    }
                 }
             }
             Spacer()
                 .navigationTitle(cityName)
         }
-        .onDisappear{
+        .onDisappear(perform: {
             trippyViewModel.selectedTrip = trip
+        })
+        .onAppear{
+            places = trip.places.sorted(byKeyPath: "timeAdded", ascending: false)
         }
         .navigationBarItems(trailing: Button(action: {
             showSheet = true
@@ -67,7 +82,7 @@ struct TripDetailsPage: View {
                 CategoryView(coordinates: region.center)
                     .environmentObject(trippyViewModel)
             }else{
-                PlaceDeatailView()
+                PlaceDeatailView(trip:trip)
                     .environmentObject(trippyViewModel)
             }
         }

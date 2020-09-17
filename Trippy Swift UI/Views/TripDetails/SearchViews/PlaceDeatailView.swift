@@ -10,10 +10,10 @@ import MapKit
 
 struct PlaceDeatailView: View {
     @EnvironmentObject var trippyViewModel:TrippyViewModel
-    @State var isAdded = true
-    @Environment(\.colorScheme) var colorScheme
+    @State var isAdded = false
     @Environment(\.openURL) var openURL
     
+    var trip:Trip? = nil
     var id:String?
     
     var body: some View {
@@ -57,10 +57,9 @@ struct PlaceDeatailView: View {
                         //"This is the call button"
                         let dash = CharacterSet(charactersIn: "-")
                         
-                        let cleanString =
-                            place.phone.trimmingCharacters(in: dash)
+                        let cleanString = place.phone.trimmingCharacters(in: dash)
                         
-                        let tel = "tel://"
+                        let tel = "tel://" 
                         let formattedString = tel + cleanString
                         let url: NSURL = URL(string: formattedString)! as NSURL
                         UIApplication.shared.open(url as URL)
@@ -70,7 +69,6 @@ struct PlaceDeatailView: View {
                             .resizable()
                             .font(.largeTitle)
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(colorScheme == .dark ? .white:.black)
                     })
                     .buttonStyle(PlainButtonStyle())
                     Spacer()
@@ -99,6 +97,25 @@ struct PlaceDeatailView: View {
                     .buttonStyle(PlainButtonStyle())
                     Spacer()
                     Button(action: {
+                        withAnimation{
+                            isAdded.toggle()
+                        }
+                    }, label: {
+                        Image(systemName: isAdded ? "checkmark":"plus")
+                            .resizable()
+                            .font(.largeTitle)
+                            .aspectRatio(contentMode: .fit)
+                    })
+                    .buttonStyle(PlainButtonStyle())
+                    .onAppear{
+                        if trippyViewModel.isPlaceAdded(placeName: place.name, trip: trip ?? trippyViewModel.selectedTrip){
+                            isAdded = true
+                        }else{
+                            isAdded = false
+                        }
+                    }
+                    Spacer()
+                    Button(action: {
                         //This is the Yelp Button
                         openURL(place.url)
                     }, label: {
@@ -110,15 +127,11 @@ struct PlaceDeatailView: View {
                 }
                 .padding(.horizontal)
                 .frame(height:60)
-                .onAppear{
-                    if trippyViewModel.isPlaceAdded(placeName: place.name){
-                        isAdded = true
-                    }
-                }
+                
                 .onDisappear{
-                    if isAdded && !trippyViewModel.isPlaceAdded(placeName: place.name){
+                    if isAdded && !trippyViewModel.isPlaceAdded(placeName: place.name, trip: trip ?? trippyViewModel.selectedTrip){
                         trippyViewModel.addPlaceToSelectedTrip(business: place)
-                    }else if !isAdded && trippyViewModel.isPlaceAdded(placeName: place.name){
+                    }else if !isAdded && trippyViewModel.isPlaceAdded(placeName: place.name, trip: trip ?? trippyViewModel.selectedTrip){
                         trippyViewModel.removePlace(placeName: place.name)
                     }
                     isAdded = false
@@ -131,23 +144,13 @@ struct PlaceDeatailView: View {
             }
         }
         .onAppear{
+            trippyViewModel.businessDetails = nil
             if id != nil{
-                trippyViewModel.businessDetails = nil
                 trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: id!)
             }else{
-                trippyViewModel.businessDetails = nil
                 trippyViewModel.getYelpData(coordinates: nil, category: nil, limit: nil, buisnessId: trippyViewModel.selectedID)
             }
         }
-        .navigationBarItems(trailing: Button(action: {
-            withAnimation{
-                isAdded.toggle()
-            }
-        }, label: {
-            Image(systemName: isAdded ? "checkmark":"plus")
-                .font(.title)
-                .animation(.spring())
-        }))
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -156,6 +159,7 @@ struct DeatailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             PlaceDeatailView(id: "WavvLdfdP6g8aZTtbBQHTw")
+                .environmentObject(TrippyViewModel())
         }
         .previewDevice("iPhone 11 Pro")
     }

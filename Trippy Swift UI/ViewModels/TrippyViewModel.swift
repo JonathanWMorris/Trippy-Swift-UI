@@ -16,7 +16,14 @@ class TrippyViewModel:ObservableObject {
     let yelpService = YelpService()
     @Published var allTrips:Results<Trip>?
     @Published var selectedTrip:Trip = Trip()
-    
+    var setTrip:Trip{
+        get{
+            return Trip()
+        }
+        set{
+            selectedTrip = newValue
+        }
+    }
     @Published var categorySelected = ""
     @Published var selectedID = ""
     @Published var placesForSearch:[CleanYelpBulkPlaceModel]? = nil
@@ -56,14 +63,13 @@ class TrippyViewModel:ObservableObject {
             
         }
     }
-    func isPlaceAdded(placeName:String) -> Bool {
-        let places = selectedTrip.places
+    func isPlaceAdded(placeName:String, trip:Trip) -> Bool {
+        let places = trip.places
         for place in places{
             if place.name == placeName{
                 return true
             }
         }
-        
         return false
     }
     
